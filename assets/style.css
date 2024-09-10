@@ -1,0 +1,19 @@
+* {
+    background-image: url("images/svbackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: "stardew";
+    src: url("font/stardew.woff") format("woff");
+}
+
+p {
+    font-family: "stardew", sans-serif;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
