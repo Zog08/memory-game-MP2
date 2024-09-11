@@ -10,7 +10,7 @@
     src: url("font/stardew.woff") format("woff");
 }
 
-p {
+h1 {
     font-family: "stardew", sans-serif;
     color: white;
     font-size: 50px;

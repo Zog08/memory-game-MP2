@@ -1,5 +1,16 @@
 
 background: https://i.pinimg.com/originals/95/26/f0/9526f08c1e26dcb4f6b9afd9d76af8ab.png
+stardew valley logo: https://stardewvalley.net/wp-content/uploads/2017/12/main_logo.png
+type font: https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlkey=jt2mobz467ah9vhcyf404244e&e=1&st=zss04ys1&dl=0 from @cowsplay on reddit.
+card back: stardew valley wiki acheivements page https://stardewvalleywiki.com/mediawiki/images/7/72/Achievement_Local_Legend.jpg
+
+
+set up the page with background.
+upload font
+upload images for cards
+
+set up initial div for the cards
+
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
