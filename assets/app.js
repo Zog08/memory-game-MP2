@@ -5,5 +5,21 @@ const tileCount = picsPicklist.length;
 
 // Game state
 let revealedCount = 0; // start game with no tiles revealed
-let activeTile = 0; // are there any first tile revealed active?
+let activeTile = null; // are there any first tile revealed active?
 let awaitingEndOfMove = false; // waiting for two incorrect match tiles to be returned to back face
+
+function buildTile(pic) {
+    const element = document.createElement("div"); // create tile div in html
+    element.classList.add("tile"); // set the class of .tile to this div
+    element.setAttribute("data-pic", pic); // assigns pic to each element
+}
+
+// build the tiles
+for (let i = 0; i < tileCount; i++) {
+    const randomIndex = Math.floor(Math.random() * picsPicklist.length);
+    const pic = picsPicklist[randomIndex];
+    const tile = buildTile(pic);
+
+    picsPicklist.splice(randomIndex, 1);
+    console.log(pic);
+}
