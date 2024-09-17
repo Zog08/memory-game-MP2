@@ -19,6 +19,7 @@ check if cards match
 
 added more cards, started with 9, realised it wasnt an even number!!
 redo of cards. Had put in 12 individual cards to the array, no matching cards!
+when clicking a non matched card, there was no visible turn for the second card. added time delay to fix visibility
 
 learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
 
