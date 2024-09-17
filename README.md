@@ -16,6 +16,9 @@ make cards flip when clicked
 show back of card when flipped
 
 
+added more cards, started with 9, realised it wasnt an even number!!
+
+
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
