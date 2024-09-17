@@ -17,9 +17,11 @@ function buildTile(pic) {
 // build the tiles
 for (let i = 0; i < tileCount; i++) {
     const randomIndex = Math.floor(Math.random() * picsPicklist.length);
+    
     const pic = picsPicklist[randomIndex];
     const tile = buildTile(pic);
 
     picsPicklist.splice(randomIndex, 1);
+    tilesContainer.appendChild(tile);//add element to the tile container in html
     console.log(pic);
 }
