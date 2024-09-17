@@ -14,17 +14,32 @@ function flipCard() {
         // second card flip
     hasFlippedCard = false;
     secondCard = this;
-        // do the cards match?
-    if (firstCard.dataset.pic === secondCard.dataset.pic) {
-        // match found. remove the event listener so cards cant be un-flipped.
-        firstCard.removeEventListener('click', flipCard);
-        secondCard.removeEventListener('click', flipCard);
-    } else {
-        // if no match, remove class list of flip to reset
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
-    }
+    
+    checkForMatch();
    }
 }
 
-cards.forEach(card => card.addEventListener('click', flipCard))
+function checkForMatch() {
+        // do the cards match?
+    if (firstCard.dataset.pic === secondCard.dataset.pic) {
+       disableCards();
+    } else {
+       unflipCards();
+        }
+}
+
+function disableCards() {
+     // match found. remove the event listener so cards cant be un-flipped.
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+}
+
+function unflipCards() {
+     // if no match, remove class list of flip to reset
+        setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+    }, 1000);
+}
+
+cards.forEach(card => card.addEventListener('click', flipCard));
