@@ -15,8 +15,15 @@ function flipCard() {
     hasFlippedCard = false;
     secondCard = this;
         // do the cards match?
-    console.log(firstCard.dataset.pic); // added dataset of first card
-    console.log(secondCard.dataset.pic); // added dataset of second card
+    if (firstCard.dataset.pic === secondCard.dataset.pic) {
+        // match found. remove the event listener so cards cant be un-flipped.
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+    } else {
+        // if no match, remove class list of flip to reset
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+    }
    }
 }
 
