@@ -21,11 +21,9 @@ function flipCard() {
 
 function checkForMatch() {
         // do the cards match?
-    if (firstCard.dataset.pic === secondCard.dataset.pic) {
-       disableCards();
-    } else {
-       unflipCards();
-        }
+    let isMatch = firstCard.dataset.pic === secondCard.dataset.pic; 
+       isMatch ? disableCards() : unflipCards(); // simplified if / else statement to ternary operator
+        
 }
 
 function disableCards() {
