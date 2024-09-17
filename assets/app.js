@@ -16,7 +16,7 @@ function flipCard() {
     secondCard = this;
         // do the cards match?
     console.log(firstCard.dataset.pic); // added dataset of first card
-    console.log(secondCardCard.dataset.pic); // added dataset of second card
+    console.log(secondCard.dataset.pic); // added dataset of second card
    }
 }
 
