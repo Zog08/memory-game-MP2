@@ -70,3 +70,7 @@ h1 {
     backface-visibility: hidden; /* hides the backface of the card when flips, default is to show the backface */
 }
 
+.front-face {
+    transform: rotateY(180deg); /* rotate the backface of the card 180deg so its visible when card is flipped*/
+}
+

@@ -10,6 +10,10 @@ upload font
 upload images for cards
 
 set up initial div for the cards
+add cards to the page in html
+style cards in css
+make cards flip when clicked
+show back of card when flipped
 
 
 
