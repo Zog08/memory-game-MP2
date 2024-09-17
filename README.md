@@ -14,9 +14,13 @@ add cards to the page in html
 style cards in css
 make cards flip when clicked
 show back of card when flipped
+check if cards match
 
 
 added more cards, started with 9, realised it wasnt an even number!!
+redo of cards. Had put in 12 individual cards to the array, no matching cards!
+
+learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
 
 
 
