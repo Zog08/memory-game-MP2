@@ -1,8 +1,7 @@
 const cards = document.querySelectorAll('.memory-card'); // get all memory cards
 
 function flipCard() {
-    console.log('I was clicked');
-    console.log(this);
+   this.classList.toggle('flip'); // toggle flip class, if there remove, if not add it
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard))
