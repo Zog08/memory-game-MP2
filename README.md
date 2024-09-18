@@ -17,10 +17,12 @@ show back of card when flipped
 check if cards match
 
 
-added more cards, started with 9, realised it wasnt an even number!!
-redo of cards. Had put in 12 individual cards to the array, no matching cards!
-when clicking a non matched card, there was no visible turn for the second card. added timeout to fix visibility. flip class   
-   removed instantly
+-added more cards, started with 9, realised it wasnt an even number!!
+-redo of cards. Had put in 12 individual cards to the array, no matching cards!
+-when clicking a non matched card, there was no visible turn for the second card. added timeout to fix visibility. flip class  
+  removed instantly
+-the board enabled multiple cards to be flipped in one go if you moved quick enough. (lockboard function Code Sketch youtube video 9 of 11)
+- double clicking on a card made the game think it was doing its second click on the already revealed card.
 
 learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
 
