@@ -55,4 +55,12 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
+(function shuffle() {
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos;
+    });
+})(); // Immediately Invoked Function Expression, IIFE - invokes as soon as the page is loaded instead of calling on it during the program
+
+
 cards.forEach(card => card.addEventListener('click', flipCard));

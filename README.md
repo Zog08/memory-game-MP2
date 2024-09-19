@@ -15,6 +15,7 @@ style cards in css
 make cards flip when clicked
 show back of card when flipped
 check if cards match
+shuffle the cards
 
 
 -added more cards, started with 9, realised it wasnt an even number!!
@@ -25,6 +26,7 @@ check if cards match
 - double clicking on a card made the game think it was doing its second click on the already revealed card.
 
 learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
+learning for shuffle - code sketch - 11/11 memory game youtube tutroial. grid, flexboc
 
 
 
