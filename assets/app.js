@@ -1,12 +1,15 @@
 const cards = document.querySelectorAll('.memory-card'); // get all memory cards
 const counter = document.querySelector(".moves"); // moves counter div
+const time =  document.querySelector(".timer"); // timer div
 
 // Store cards
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let pairs = 0,
-    moves = 0;
+    moves = 0,
+    seconds = 0,
+    minutes = 0;
 
 function flipCard() {
     if (lockBoard) return;
@@ -77,9 +80,25 @@ function endGame() {
     
 }
 
-function moveCounter() {
-    moves++;
-    counter.innerHTML = moves;
+function moveCounter() {        // moves and timer learning, see readme for details (CogniVis AI youtube channel)
+    moves++;                    // add 1 to moves counter each flip. 
+    counter.innerHTML = moves;  // show in .moves html
+
+    if (moves == 1) {           // starts timer on first move, not on page load
+        startTimer();
+
+    }
+}
+
+function startTimer () {
+    interval = setInterval(() => {
+        time.innerHTML = minutes + "mins " + seconds + "secs";
+        seconds++;
+        if (seconds == 60) {
+            minutes++;
+            seconds = 0;
+        }
+    }, 1000);
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
