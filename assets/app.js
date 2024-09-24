@@ -1,17 +1,20 @@
 const cards = document.querySelectorAll('.memory-card'); // get all memory cards
+const counter = document.querySelector(".moves"); // moves counter div
 
 // Store cards
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-let pairs = 0;
+let pairs = 0,
+    moves = 0;
 
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return; // if the card has been double clicked, return from the function
 
     this.classList.add('flip'); // add flip card class when flipped first time
-    
+    moveCounter();
+
     if (!hasFlippedCard) {
         // first flip
         hasFlippedCard = true;
@@ -72,6 +75,11 @@ function endGame() {
         alert("You won!");
     }, 300)
     
+}
+
+function moveCounter() {
+    moves++;
+    counter.innerHTML = moves;
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
