@@ -16,8 +16,8 @@ x make cards flip when clicked
 x show back of card when flipped
 x check if cards match
 x shuffle the cards
-increase the moves counter
-start timer at game begin
+x increase the moves counter
+start timer at game begin, not on page load
 end timer at game
 x check for end game - won - alert = "You won!"
 
@@ -31,7 +31,10 @@ x check for end game - won - alert = "You won!"
 - when revealing last card for final match the alert shows before last card is flipped. added timeout to allow time to view last card
 
 learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
-learning for shuffle - code sketch - 11/11 memory game youtube tutroial. grid, flexboc
+learning for shuffle - code sketch - 11/11 memory game youtube tutroial. grid, flexbox
+learning for timer and moves counter - CogniVis AI on youtube
+
+live testing done by my 9 year old daughter. She said "its fun!"
 
 
 

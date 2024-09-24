@@ -20,13 +20,18 @@ body {
     src: url("font/stardew.woff") format("woff");
 }
 
+.logo {
+    width: 250px;
+}
+
 h1 {
     font-family: "stardew", sans-serif;
     color: white;
     font-size: 50px;
     display: flex;
     justify-content: center;
-    padding:25px;
+    padding-bottom: 15px;
+    padding-top: 10px;
 }
 
 .meta {
