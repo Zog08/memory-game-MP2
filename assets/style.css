@@ -21,7 +21,7 @@ body {
 }
 
 .logo {
-    width: 250px;
+    width: 180px;
     padding-top: 10px;
 }
 
@@ -32,8 +32,7 @@ h1 {
     font-size: 50px;
     display: flex;
     justify-content: center;
-    padding-bottom: 15px;
-    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 button {
@@ -47,10 +46,9 @@ button {
     border-radius: 5px;
     border: 5px solid brown;
     cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
-
 
 button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
@@ -58,9 +56,16 @@ button:hover {
 
 .meta {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 17px;
     display: flex;
     justify-content: center;
+    background-color: #f6b561;
+    width: 310px;
+    height: 30px;
+    border: 3px solid brown;
+    align-items: center;
+    
 }
 
 .moves, .time {
