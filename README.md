@@ -29,12 +29,14 @@ x check for end game - won - alert = "You won!"
 -the board enabled multiple cards to be flipped in one go if you moved quick enough. (lockboard function Code Sketch youtube video 9 of 11)
 - double clicking on a card made the game think it was doing its second click on the already revealed card.
 - when revealing last card for final match the alert shows before last card is flipped. added timeout to allow time to view last card
+- forgot to stop timer at end of game.
 
 learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
 learning for shuffle - code sketch - 11/11 memory game youtube tutroial. grid, flexbox
 learning for timer and moves counter - CogniVis AI on youtube
 
 live testing done by my 9 year old daughter. She said "its fun!"
+live testing during development by 11 year old daughter. A nod of approval was a big win for me, i felt 100x aura added.
 
 
 

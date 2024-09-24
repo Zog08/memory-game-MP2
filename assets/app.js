@@ -75,6 +75,7 @@ function resetBoard() {
 
 function endGame() {
     setTimeout(()=> {
+        stopTimer();
         alert("You won!");
     }, 300)
     
@@ -99,6 +100,10 @@ function startTimer () {
             seconds = 0;
         }
     }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(interval);
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
