@@ -17,9 +17,13 @@ x show back of card when flipped
 x check if cards match
 x shuffle the cards
 x increase the moves counter
-start timer at game begin, not on page load
-end timer at game
+x start timer at game begin, not on page load
+x end timer at game
 x check for end game - won - alert = "You won!"
+add first page with rules and start game buttons
+add extra level?
+
+
 
 
 -added more cards, started with 9, realised it wasnt an even number!!
@@ -37,7 +41,7 @@ learning for timer and moves counter - CogniVis AI on youtube
 
 live testing done by my 9 year old daughter. She said "its fun!"
 live testing during development by 11 year old daughter. A nod of approval was a big win for me, i felt 100x aura added.
-
+live testing done by my husband. He is not familiar with Stardew Valley but he thought it was cutesy.
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)

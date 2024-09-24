@@ -76,8 +76,8 @@ function resetBoard() {
 function endGame() {
     setTimeout(()=> {
         stopTimer();
-        alert("You won!");
-    }, 300)
+        alert(`You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`);     // template literal, displays winning moves and time in the alert box
+    }, 300);
     
 }
 
