@@ -4,6 +4,7 @@ const cards = document.querySelectorAll('.memory-card'); // get all memory cards
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let pairs = 0;
 
 function flipCard() {
     if (lockBoard) return;
@@ -37,6 +38,10 @@ function disableCards() {
      // match found. remove the event listener so cards cant be un-flipped.
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard);
+
+        pairs++;
+
+        if (pairs == 6) endGame();
         resetBoard();
 }
 
@@ -62,5 +67,11 @@ function resetBoard() {
     });
 })(); // Immediately Invoked Function Expression, IIFE - invokes as soon as the page is loaded instead of calling on it during the program
 
+function endGame() {
+    setTimeout(()=> {
+        alert("You won!");
+    }, 300)
+    
+}
 
 cards.forEach(card => card.addEventListener('click', flipCard));

@@ -5,17 +5,21 @@ type font: https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk
 card back: stardew valley wiki acheivements page https://stardewvalleywiki.com/mediawiki/images/7/72/Achievement_Local_Legend.jpg
 
 
-set up the page with background.
-upload font
-upload images for cards
+x set up the page with background.
+x upload font
+x upload images for cards
 
-set up initial div for the cards
-add cards to the page in html
-style cards in css
-make cards flip when clicked
-show back of card when flipped
-check if cards match
-shuffle the cards
+x set up initial div for the cards
+x add cards to the page in html
+x style cards in css
+x make cards flip when clicked
+x show back of card when flipped
+x check if cards match
+x shuffle the cards
+increase the moves counter
+start timer at game begin
+end timer at game
+x check for end game - won - alert = "You won!"
 
 
 -added more cards, started with 9, realised it wasnt an even number!!
@@ -24,6 +28,7 @@ shuffle the cards
   removed instantly
 -the board enabled multiple cards to be flipped in one go if you moved quick enough. (lockboard function Code Sketch youtube video 9 of 11)
 - double clicking on a card made the game think it was doing its second click on the already revealed card.
+- when revealing last card for final match the alert shows before last card is flipped. added timeout to allow time to view last card
 
 learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
 learning for shuffle - code sketch - 11/11 memory game youtube tutroial. grid, flexboc
