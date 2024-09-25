@@ -34,6 +34,7 @@ add extra level?
 - double clicking on a card made the game think it was doing its second click on the already revealed card.
 - when revealing last card for final match the alert shows before last card is flipped. added timeout to allow time to view last card
 - forgot to stop timer at end of game.
+- logo image not displaying on deployed site, fixed src address to rectify
 
 learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
 learning for shuffle - code sketch - 11/11 memory game youtube tutroial. grid, flexbox
