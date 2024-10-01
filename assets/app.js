@@ -1,11 +1,18 @@
 const cards = document.querySelectorAll('.memory-card'); // get all memory cards
 const counter = document.querySelector(".moves"); // moves counter div
 const time =  document.querySelector(".timer"); // timer div
-const accordion = document.querySelector(".panel"); // target the panel for the drop down accordion on index page
+const accordion = document.querySelectorAll(".panel"); // target the panels for the drop down accordion on index page
 
-accordion(function (ele) {
+accordion.forEach(function (ele) {
     console.log(ele);
+    ele.addEventListener('click', toggleEle);
 })
+
+function toggleEle(e) {
+    console.log(e);
+    console.log(this);
+    console.log(e.target);
+}
 
 // Store cards
 let hasFlippedCard = false;
