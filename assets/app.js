@@ -3,15 +3,18 @@ const counter = document.querySelector(".moves"); // moves counter div
 const time =  document.querySelector(".timer"); // timer div
 const accordion = document.querySelectorAll(".panel"); // target the panels for the drop down accordion on index page
 
-accordion.forEach(function (ele) {
+accordion.forEach(function (ele) {              // accordion function - with help from Laurence Svekis on Udemy 
     console.log(ele);
     ele.addEventListener('click', toggleEle);
 })
 
 function toggleEle(e) {
-    console.log(e);
-    console.log(this);
-    console.log(e.target);
+    accordion.forEach(function(ele) {
+        ele.classList.remove('active');
+    })
+
+    this.classList.toggle('active');
+
 }
 
 // Store cards

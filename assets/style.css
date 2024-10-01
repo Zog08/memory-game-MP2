@@ -36,10 +36,11 @@ h1 {
 }
 
 button {
-    width: 180px;
+    width: 150px;
     padding: 10px;
     margin: 10px auto;
     font-family: "stardew", sans-serif;
+    font-size: 20px;
     color: rgb(0, 0, 0);
     background-color: #f6b561;
     font-size: 30px;
@@ -55,13 +56,14 @@ button:hover {
   }
 
 .main .abody {
-    width: 180px;
+    width: 230px;
     padding: 10px;
     margin: 10px auto;
     font-family: "stardew", sans-serif;
+    font-size: 20px;
     color: rgb(0, 0, 0);
     background-color: #f6b561;
-    font-size: 15px;
+    font-size: 25px;
     border-radius: 5px;
     border: 5px solid brown;
     cursor: pointer;
@@ -73,7 +75,7 @@ button:hover {
 }
 
 .main .ahead {
-    width: 180px;
+    width: 230px;
     padding: 10px;
     margin: 10px auto;
     font-family: "stardew", sans-serif;
@@ -83,6 +85,10 @@ button:hover {
     border-radius: 5px;
     border: 5px solid brown;
     cursor: pointer;
+}
+
+.ruleslist {
+    list-style-type: square;
 }
 
 .meta {
