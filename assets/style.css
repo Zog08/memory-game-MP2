@@ -61,6 +61,7 @@ button:hover {
     margin: 10px auto;
     font-family: "stardew", sans-serif;
     font-size: 20px;
+    align-items: center;
     color: rgb(0, 0, 0);
     background-color: #f6b561;
     font-size: 25px;
@@ -71,13 +72,14 @@ button:hover {
 }
 
 .main .active .abody {
-    display: block;
+    display: flex;
 }
 
 .main .ahead {
     width: 230px;
     padding: 10px;
     margin: 10px auto;
+    text-align: center;
     font-family: "stardew", sans-serif;
     color: rgb(0, 0, 0);
     background-color: #f6b561;
@@ -88,7 +90,7 @@ button:hover {
 }
 
 .ruleslist {
-    list-style-type: square;
+    list-style-type: none ;
 }
 
 .meta {
