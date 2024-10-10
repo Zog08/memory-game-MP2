@@ -160,3 +160,16 @@ button:hover {
     transform: rotateY(180deg); /* rotate the backface of the card 180deg so its visible when card is flipped*/
 }
 
+.end-panel {
+    width: 150px;
+    padding: 10px;
+    margin: 10px auto;
+    font-family: "stardew", sans-serif;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    background-color: #f6b561;
+    font-size: 30px;
+    border-radius: 5px;
+    border: 5px solid brown;
+    cursor: pointer;
+}
