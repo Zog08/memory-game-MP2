@@ -10,13 +10,16 @@
     <img class="logo"  src="assets/images/mainlogo.png"/>
     <h1>You Won!</h1>
 
-    <div class = "container">
+    <div class = "scorePanel">
         <div id="end" class="end-panel">
-            <h2 id="finalScore">0</h2>
+            <h2 id="finalScore">Score: 0</h2>
             <form>
                 <input type="text" name="username" id="username" placeholder="username"/>
-                <button type="submit" id="saveSvoreBtn" onclick="saveHighScore(event)">Save</button>
-            </form>
+                <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore(event)">Save Name</button>
+            
+        </form>
+            <div class="btn"><a  href="game.html">Play Again</a></div>
+            <div class="btn"><a  href="index.html">Go Home</a></div>
         </div>
     </div>
        
