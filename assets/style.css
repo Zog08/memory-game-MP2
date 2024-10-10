@@ -177,7 +177,6 @@ h1 {
     background-color: #f6b561;
     border-radius: 5px;
     border: 5px solid brown;
-    cursor: pointer;
 }
 
 a {
@@ -186,4 +185,13 @@ a {
 
 form {
     padding-bottom: 20px;
+}
+
+input {
+    height: 40px;
+    width: 150px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 5px solid brown;
 }

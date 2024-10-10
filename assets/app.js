@@ -122,3 +122,18 @@ function stopTimer() {
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+// End Page, high scores
+
+const username = document.getElementById("username");
+const saveScoreBtn = document.getElementById("saveScoreBtn");
+
+username.addEventListener("keyup", () => {
+    saveScoreBtn.disabled = !username.value;
+})
+
+saveHighScore = e => {
+    console.log("clicked save");
+    e.preventDefault();
+}
+
