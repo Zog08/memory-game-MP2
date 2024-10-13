@@ -2,6 +2,7 @@ const cards = document.querySelectorAll('.memory-card'); // get all memory cards
 const counter = document.querySelector(".moves"); // moves counter div
 const time =  document.querySelector(".timer"); // timer div
 const accordion = document.querySelectorAll(".panel"); // target the panels for the drop down accordion on index page
+// const youWon = document.getElementById("you-won");
 
 accordion.forEach(function (ele) {              // accordion function - with help from Laurence Svekis on Udemy 
     console.log(ele);
@@ -88,10 +89,16 @@ function resetBoard() {
     });
 })(); // Immediately Invoked Function Expression, IIFE - invokes as soon as the page is loaded instead of calling on it during the program
 
+function redirect() {
+    window.open("../end.html", "_self"); // redirects you to end page to store score
+ }
+
 function endGame() {
     setTimeout(()=> {
         stopTimer();
-        alert(`You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`);     // template literal, displays winning moves and time in the alert box
+        redirect();
+        //alert(`You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`);     // template literal, displays winning moves and time in the alert box
+        document.getElementById("you-won").innerText = `You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`
     }, 300);
     
 }
@@ -129,7 +136,7 @@ const username = document.getElementById("username");
 const saveScoreBtn = document.getElementById("saveScoreBtn");
 
 username.addEventListener("keyup", () => {
-    saveScoreBtn.disabled = !username.value;
+    saveScoreBtn.disabled = !username.value; // disable the save buton if nothing is typed in the name input, listen for keyup
 })
 
 saveHighScore = e => {
