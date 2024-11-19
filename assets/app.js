@@ -38,22 +38,18 @@ function flipCard() {
         // first flip
         hasFlippedCard = true;
         firstCard = this;
-
         return;
     }
         // second card flip
     
     secondCard = this;
-    
     checkForMatch();
-   
 }
 
 function checkForMatch() {
         // do the cards match?
     let isMatch = firstCard.dataset.pic === secondCard.dataset.pic; 
-       isMatch ? disableCards() : unflipCards(); // simplified if / else statement to ternary operator
-        
+       isMatch ? disableCards() : unflipCards(); // simplified if / else statement to ternary operator     
 }
 
 function disableCards() {
@@ -89,30 +85,15 @@ function resetBoard() {
     });
 })(); // Immediately Invoked Function Expression, IIFE - invokes as soon as the page is loaded instead of calling on it during the program
 
+const finalScore = document.getElementById("finalScore");
+//const score = document.getElementsByClassName("score");
 function redirect() {
     window.open("../end.html", "_self"); // redirects you to end page to store score
+   //finalScore.innerText = `${(mins * 60) + secs + moves}`;
+    //console.log(score);
  }
 
-function endGame() {
-    setTimeout(()=> {
-        stopTimer();
-        redirect();
-        //alert(`You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`);     // template literal, displays winning moves and time in the alert box
-        document.getElementById("you-won").innerText = `You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`
-    }, 300);
-    
-}
-
-function moveCounter() {        // moves and timer learning, see readme for details (CogniVis AI youtube channel)
-    moves++;                    // add 1 to moves counter each flip. 
-    counter.innerHTML = moves;  // show in .moves html
-
-    if (moves == 1) {           // starts timer on first move, not on page load
-        startTimer();
-
-    }
-}
-
+ 
 function startTimer () {
     interval = setInterval(() => {
         time.innerHTML = minutes + "mins " + seconds + "secs";
@@ -130,17 +111,60 @@ function stopTimer() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
+
+function endGame() {
+    setTimeout(()=> {
+        stopTimer();
+        localStorage.setItem('mostRecentScore', moves);
+        //localStorage.setItem('mostRecentTime', secs);
+        redirect();
+        //endScore();
+        //alert(`You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`);     // template literal, displays winning moves and time in the alert box
+       // document.getElementById("you-won").innerText = `You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`
+    }, 300);
+    
+}
+
+function moveCounter() {        // moves and timer learning, see readme for details (CogniVis AI youtube channel)
+    moves++;                    // add 1 to moves counter each flip. 
+    counter.innerHTML = moves;  // show in .moves html
+
+    if (moves == 1) {           // starts timer on first move, not on page load
+        startTimer();
+    }
+}
+
+
+
+
+
+
+// function endScore () {
+//   document.getElementById("finalScore").innerText = `You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`;
+// }
+
 // End Page, high scores
 
 const username = document.getElementById("username");
 const saveScoreBtn = document.getElementById("saveScoreBtn");
+const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most recent score from local storage saved at endgame()
+//const mostRecentTime = localStorage.getItem('mostRecentTime'); //get most recent time
 
+const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items
+console.log(highScores);
+
+finalScore.innerText = mostRecentScore;
 username.addEventListener("keyup", () => {
     saveScoreBtn.disabled = !username.value; // disable the save buton if nothing is typed in the name input, listen for keyup
-})
+});
 
 saveHighScore = e => {
     console.log("clicked save");
     e.preventDefault();
 }
 
+const score = {
+    name: username.value,
+    score: mostRecentScore,
+    //time: mostRecentTime
+}

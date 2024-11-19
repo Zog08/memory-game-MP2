@@ -8,11 +8,11 @@
 </head>
 <body>
     <img class="logo"  src="assets/images/mainlogo.png"/>
-    <h1 class="you-won">You Won!</h1>
+    <h1 id="you-won">You Won!</h1>
 
     <div class = "scorePanel">
         <div id="end" class="end-panel">
-            <h2 id="finalScore">Score: 0</h2>
+            <h2>Moves: <span id="finalScore"></span></h2>
             <form>
                 <input type="text" name="username" id="username" placeholder="username" autocomplete="off"/>
                 <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore(event)" disabled>Save Name</button>
