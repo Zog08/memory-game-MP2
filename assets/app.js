@@ -150,21 +150,24 @@ const saveScoreBtn = document.getElementById("saveScoreBtn");
 const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most recent score from local storage saved at endgame()
 //const mostRecentTime = localStorage.getItem('mostRecentTime'); //get most recent time
 
-const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items
+const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items || of for first time it initialises an empty array
 console.log(highScores);
 
 finalScore.innerText = mostRecentScore;
 username.addEventListener("keyup", () => {
-    saveScoreBtn.disabled = !username.value; // disable the save buton if nothing is typed in the name input, listen for keyup
+    saveScoreBtn.disabled = !username.value; // disable the save button if nothing is typed in the name input, listen for keyup
 });
 
 saveHighScore = e => {
     console.log("clicked save");
     e.preventDefault();
-}
 
 const score = {
     name: username.value,
-    score: mostRecentScore,
+    score: mostRecentScore
     //time: mostRecentTime
-}
+};
+
+highScores.push(score);
+console.log(highScores);
+};
