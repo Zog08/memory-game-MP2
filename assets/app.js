@@ -169,5 +169,6 @@ const score = {
 };
 
 highScores.push(score);
+// highScores.sort( (a,b) => b.score - a.score) // Order the sore array with implicit arrow function ADD IN WITH RESEARCH!! LATEST PUSH!
 console.log(highScores);
 };
