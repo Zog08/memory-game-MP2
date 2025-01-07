@@ -88,7 +88,7 @@ function resetBoard() {
 const finalScore = document.getElementById("finalScore");
 //const score = document.getElementsByClassName("score");
 function redirect() {
-    window.open("../end.html", "_self"); // redirects you to end page to store score
+    window.open("/end.html", "_self"); // redirects you to end page to store score
    //finalScore.innerText = `${(mins * 60) + secs + moves}`;
     //console.log(score);
  }
