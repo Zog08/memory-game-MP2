@@ -74,6 +74,7 @@ h1 {
 
 .main .active .abody {
     display: flex;
+    text-align: center;
 }
 
 .main .ahead {
