@@ -153,8 +153,6 @@ const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most rece
 const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items || of for first time it initialises an empty array
 const MAX_HIGH_SCORES = 5;
 
-console.log(highScores);
-
 finalScore.innerText = mostRecentScore;
 username.addEventListener("keyup", () => {
     saveScoreBtn.disabled = !username.value; // disable the save button if nothing is typed in the name input, listen for keyup
@@ -166,12 +164,14 @@ saveHighScore = e => {
 
 const score = {
     name: username.value,
-    score: Math.floor(Math.random() * 100)
+    score: mostRecentScore
     //time: mostRecentTime
 };
 
 highScores.push(score);
 highScores.sort( (a,b) => a.score - b.score); // Order the score array with implicit arrow function ADD IN WITH RESEARCH!! LATEST PUSH!
 highScores.splice(5); // only top5 scores in the array
+localStorage.setItem("highScores", JSON.stringify(highScores)); // keeps the previous scores saved in local storage on refresh. turn hiscore to string
+window.location.assign("/"); // send you to home page once you click save?
 console.log(highScores);
 };
