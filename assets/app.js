@@ -151,6 +151,8 @@ const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most rece
 //const mostRecentTime = localStorage.getItem('mostRecentTime'); //get most recent time
 
 const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items || of for first time it initialises an empty array
+const MAX_HIGH_SCORES = 5;
+
 console.log(highScores);
 
 finalScore.innerText = mostRecentScore;
@@ -169,6 +171,7 @@ const score = {
 };
 
 highScores.push(score);
-// highScores.sort( (a,b) => b.score - a.score) // Order the sore array with implicit arrow function ADD IN WITH RESEARCH!! LATEST PUSH!
+highScores.sort( (a,b) => a.score - b.score); // Order the score array with implicit arrow function ADD IN WITH RESEARCH!! LATEST PUSH!
+highScores.splice(5); // only top5 scores in the array
 console.log(highScores);
 };
