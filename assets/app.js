@@ -166,7 +166,7 @@ saveHighScore = e => {
 
 const score = {
     name: username.value,
-    score: mostRecentScore
+    score: Math.floor(Math.random() * 100)
     //time: mostRecentTime
 };
 
