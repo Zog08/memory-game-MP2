@@ -149,7 +149,7 @@ const username = document.getElementById("username");
 const saveScoreBtn = document.getElementById("saveScoreBtn");
 const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most recent score from local storage saved at endgame()
 //const mostRecentTime = localStorage.getItem('mostRecentTime'); //get most recent time
-
+const highScoresList = document.getElementById("highScoresList");
 const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items || of for first time it initialises an empty array
 const MAX_HIGH_SCORES = 5;
 
@@ -165,13 +165,18 @@ saveHighScore = e => {
 const score = {
     name: username.value,
     score: mostRecentScore
-    //time: mostRecentTime
 };
 
 highScores.push(score);
-highScores.sort( (a,b) => a.score - b.score); // Order the score array with implicit arrow function ADD IN WITH RESEARCH!! LATEST PUSH!
+highScores.sort( (a,b) => a.score - b.score); // Order the score array with implicit arrow function. a-b sorts ascending
 highScores.splice(5); // only top5 scores in the array
 localStorage.setItem("highScores", JSON.stringify(highScores)); // keeps the previous scores saved in local storage on refresh. turn hiscore to string
-window.location.assign("/"); // send you to home page once you click save?
+window.location.reload(); // send you to home page once you click save?
 console.log(highScores);
 };
+
+highScoresList.innerHTML = highScores   
+        .map(score => {
+            return `<li class="high-score">${score.name} - ${score.score}</li>`;
+        })
+    .join("");
