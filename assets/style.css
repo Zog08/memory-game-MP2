@@ -1,10 +1,12 @@
-* { padding: 0;
+* {
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* ----------------------------------------------------- Body specific CSS */
+
 body {
-    /*height: 100vh;*/
     display: flex;
     flex-direction: column;
     background-image: url("images/svbackground.webp");
@@ -53,8 +55,10 @@ h1 {
 }
 
 .btn:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-  }
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* ----------------------------------------------------- index.html specific css */
 
 .main .abody {
     width: 230px;
@@ -92,7 +96,7 @@ h1 {
 }
 
 .ruleslist {
-    list-style-type: none ;
+    list-style-type: none;
 }
 
 .meta {
@@ -106,10 +110,11 @@ h1 {
     height: 30px;
     border: 3px solid brown;
     align-items: center;
-    
 }
 
-.moves, .time {
+/* ----------------------------------------------------- Game page specific CSS */
+.moves,
+.time {
     margin-right: 10px;
 }
 
@@ -120,12 +125,13 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     border: 2px solid teal;
-    perspective: 1000px; /* create 3D depth for card to flip in 3D*/
+    perspective: 1000px;
+    /* create 3D depth for card to flip in 3D*/
 }
 
 .memory-card {
     width: calc(33.33% - 10px);
-   /* height: calc(25% - 10px);*/
+    /* height: calc(25% - 10px);*/
     aspect-ratio: 1;
     margin: 5px;
     position: relative;
@@ -147,7 +153,8 @@ h1 {
 }
 
 .memory-card.flip {
-    transform: rotateY(180deg); /* rotate on Y axis to flip the card when clicked*/
+    transform: rotateY(180deg);
+    /* rotate on Y axis to flip the card when clicked*/
 }
 
 .front-face {
@@ -155,24 +162,23 @@ h1 {
     background: #f6b561;
 }
 
-.front-face, .back-face {
+.front-face,
+.back-face {
     width: 100%;
-    height:100%;
+    height: 100%;
     min-width: 80px;
     min-height: 81px;
     position: absolute;
-    backface-visibility: hidden; /* hides the backface of the card when flips, default is to show the backface */
+    backface-visibility: hidden;
+    /* hides the backface of the card when flips, default is to show the backface */
 }
 
 .front-face {
-    transform: rotateY(180deg); /* rotate the backface of the card 180deg so its visible when card is flipped*/
+    transform: rotateY(180deg);
+    /* rotate the backface of the card 180deg so its visible when card is flipped*/
 }
 
-/*.scorePanel {
-    display: grid;
-    
-}*/
-
+/* ----------------------------------------------------- End.html page specific CSS */
 .end-panel {
     width: 230px;
     padding: 10px;

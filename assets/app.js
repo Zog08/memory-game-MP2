@@ -2,7 +2,6 @@ const cards = document.querySelectorAll('.memory-card'); // get all memory cards
 const counter = document.querySelector(".moves"); // moves counter div
 const time =  document.querySelector(".timer"); // timer div
 const accordion = document.querySelectorAll(".panel"); // target the panels for the drop down accordion on index page
-// const youWon = document.getElementById("you-won");
 
 accordion.forEach(function (ele) {              // accordion function - with help from Laurence Svekis on Udemy 
     console.log(ele);
@@ -13,11 +12,10 @@ function toggleEle(e) {
     accordion.forEach(function(ele) {
         ele.classList.remove('active');
     })
-
     this.classList.toggle('active');
 }
 
-// Store cards
+//----------------- Store cards
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -29,7 +27,6 @@ let pairs = 0,
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return; // if the card has been double clicked, return from the function
-
     this.classList.add('flip'); // add flip card class when flipped first time
     moveCounter();
 
@@ -40,7 +37,6 @@ function flipCard() {
         return;
     }
         // second card flip
-    
     secondCard = this;
     checkForMatch();
 }
@@ -55,9 +51,7 @@ function disableCards() {
      // match found. remove the event listener so cards cant be un-flipped.
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard);
-
         pairs++;
-
         if (pairs == 6) endGame();
         resetBoard();
 }
@@ -92,7 +86,6 @@ function redirect() {
     //console.log(score);
  }
 
- 
 function startTimer () {
     interval = setInterval(() => {
         time.innerHTML = minutes + "mins " + seconds + "secs";
@@ -110,7 +103,6 @@ function stopTimer() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-
 function endGame() {
     setTimeout(()=> {
         stopTimer();
@@ -121,33 +113,19 @@ function endGame() {
         //alert(`You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`);     // template literal, displays winning moves and time in the alert box
        // document.getElementById("you-won").innerText = `You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`
     }, 300);
-    
 }
 
 function moveCounter() {        // moves and timer learning, see readme for details (CogniVis AI youtube channel)
     moves++;                    // add 1 to moves counter each flip. 
     counter.innerHTML = moves;  // show in .moves html
-
     if (moves == 1) {           // starts timer on first move, not on page load
         startTimer();
     }
 }
 
-
-
-
-
-
-// function endScore () {
-//   document.getElementById("finalScore").innerText = `You won in ${moves} moves, in ${minutes} minutes and ${seconds} seconds!`;
-// }
-
-// End Page, high scores
-
 const username = document.getElementById("username");
 const saveScoreBtn = document.getElementById("saveScoreBtn");
 const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most recent score from local storage saved at endgame()
-//const mostRecentTime = localStorage.getItem('mostRecentTime'); //get most recent time
 const highScoresList = document.getElementById("highScoresList");
 const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items || of for first time it initialises an empty array
 const MAX_HIGH_SCORES = 5;
