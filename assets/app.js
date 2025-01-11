@@ -15,7 +15,6 @@ function toggleEle(e) {
     })
 
     this.classList.toggle('active');
-
 }
 
 // Store cards
