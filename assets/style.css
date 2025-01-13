@@ -17,11 +17,14 @@ body {
     align-items: center;
 }
 
+/* font sourced from @cowsplay on Reddit.com 
+https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlkey=jt2mobz467ah9vhcyf404244e&e=1&st=zss04ys1&dl=0 */
 @font-face {
     font-family: "stardew";
     src: url("font/stardew.woff") format("woff");
 }
 
+/* Main logo from official Stardew webpage https://stardewvalley.net/wp-content/uploads/2017/12/main_logo.png */
 .logo {
     width: 180px;
     min-height: 82px;
@@ -59,7 +62,6 @@ h1 {
 }
 
 /* ----------------------------------------------------- index.html specific css */
-
 .main .abody {
     width: 230px;
     padding: 10px;
@@ -131,7 +133,6 @@ h1 {
 
 .memory-card {
     width: calc(33.33% - 10px);
-    /* height: calc(25% - 10px);*/
     aspect-ratio: 1;
     margin: 5px;
     position: relative;
@@ -143,18 +144,16 @@ h1 {
 }
 
 .memory-card:hover {
-    cursor: url('images/Junimo.webp'), auto;
+    cursor: url('images/junimo.webp'), auto;
 }
 
-/* make the card shrink slightly when clicked active*/
-.memory-card:active {
+.memory-card:active {               /* make the card shrink slightly when clicked active*/
     transform: scale(.97);
     transition: transform .2s;
 }
 
-.memory-card.flip {
+.memory-card.flip {                 /* rotate on Y axis to flip the card when clicked*/
     transform: rotateY(180deg);
-    /* rotate on Y axis to flip the card when clicked*/
 }
 
 .front-face {
@@ -169,13 +168,11 @@ h1 {
     min-width: 80px;
     min-height: 81px;
     position: absolute;
-    backface-visibility: hidden;
-    /* hides the backface of the card when flips, default is to show the backface */
+    backface-visibility: hidden;    /* hides the backface of the card when flips, default is to show the backface */
 }
 
 .front-face {
-    transform: rotateY(180deg);
-    /* rotate the backface of the card 180deg so its visible when card is flipped*/
+    transform: rotateY(180deg);    /* rotate the backface of the card 180deg so its visible when card is flipped*/
 }
 
 /* ----------------------------------------------------- End.html page specific CSS */
@@ -210,7 +207,7 @@ input {
     border: 5px solid brown;
 }
 
-#highScoresList {
+#high-scores-list {
     list-style: none;
     padding-top: 10px;
 }

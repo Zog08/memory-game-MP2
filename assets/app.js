@@ -126,7 +126,7 @@ function moveCounter() {        // moves and timer learning, see readme for deta
 const username = document.getElementById("username");
 const saveScoreBtn = document.getElementById("saveScoreBtn");
 const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most recent score from local storage saved at endgame()
-const highScoresList = document.getElementById("highScoresList");
+const highScoresList = document.getElementById("high-scores-list");
 const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items || of for first time it initialises an empty array
 const MAX_HIGH_SCORES = 5;
 
