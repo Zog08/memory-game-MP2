@@ -6,12 +6,12 @@ const accordion = document.querySelectorAll(".panel"); // target the panels for 
 // accordion function - with help from Laurence Svekis on Udemy https://www.udemy.com/share/101XdM/
 accordion.forEach(function (ele) {              
     ele.addEventListener('click', toggleEle);
-})
+});
 
 function toggleEle(e) {
     accordion.forEach(function(ele) {
         ele.classList.remove('active');
-    })
+    });
     this.classList.toggle('active');
 }
 
@@ -96,7 +96,7 @@ const saveScoreBtn = document.getElementById("save-score-btn");
 const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most recent score from local storage saved at endgame()
 const highScoresList = document.getElementById("high-scores-list");
 const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items || of for first time it initialises an empty array
-const MAX_HIGH_SCORES = 5;
+// const MAX_HIGH_SCORES = 5;
 
 function redirect() {
     window.open("end.html", "_self"); // redirects you to end page to store score
@@ -123,7 +123,7 @@ username.addEventListener("keyup", () => {
     saveScoreBtn.disabled = !username.value; // disable the save button if nothing is typed in the name input, listen for keyup
 });
 
-saveHighScore = e => {
+saveHighScore = e => {              // saveHighScore is an onclick event in end.html
     e.preventDefault();
 
 const score = {
