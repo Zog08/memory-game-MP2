@@ -11,27 +11,32 @@
 </head>
 
 <body>
-    <img class="logo" src="assets/images/mainlogo.webp" width="180" height="92" alt="Stardew Valley text logo">
-    <h1 id="you-won">You Won!</h1>
-    <div class="score-panel">
-        <div id="end" class="end-panel">
-            <h2>Moves: <span id="final-score"></span></h2>
-            <form>
-                <input type="text" name="username" id="username" placeholder="username" autocomplete="off">
-                <button type="submit" class="btn" id="save-score-btn" onclick="saveHighScore(event)" disabled>Save
-                    Name</button>
-            </form>
-            <div class="btn"><a href="game.html">Play Again</a></div>
-            <div class="btn"><a href="index.html">Go Home</a></div>
+    <header>
+        <img class="logo" src="assets/images/mainlogo.webp" width="180" height="92" alt="Stardew Valley text logo">
+    </header>
+    <main>
+        <h1 id="you-won">You Won!</h1>
+        <div class="score-panel">
+            <div id="end" class="end-panel">
+                <h2>Moves: <span id="final-score"></span></h2>
+                <form>
+                    <label for ="username">enter your username:</label>
+                    <input type="text" name="username" id="username" placeholder="username" autocomplete="off">
+                    <button type="submit" class="btn" id="save-score-btn" onclick="saveHighScore(event)" disabled>Save
+                        Name</button>
+                </form>
+                <div class="btn"><a href="game.html">Play Again</a></div>
+                <div class="btn"><a href="index.html">Go Home</a></div>
+            </div>
         </div>
-    </div>
-    <div class="score-panel">
-        <div class="end-panel">
-            <h2>Hi-Scores</h2>
-            <ul id="high-scores-list">
-            </ul>
+        <div class="score-panel">
+            <div class="end-panel">
+                <h2>Hi-Scores</h2>
+                <ul id="high-scores-list">
+                </ul>
+            </div>
         </div>
-    </div>
+    </main>
     <script src="assets/app.js"></script>
 </body>
 

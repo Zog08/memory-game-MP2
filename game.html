@@ -11,65 +11,68 @@
 </head>
 
 <body>
-    <a href="index.html"><img class="logo" src="assets/images/mainlogo.webp" alt="Stardew Valley text logo"></a>
-    <h1>Memory Game</h1>
-    <div class="meta">
-        <div>Moves: <span class="moves"></span></div>
-        <div>Time: <span class="timer"></span></div>
-    </div>
+    <header>
+        <a href="index.html"><img class="logo" src="assets/images/mainlogo.webp" alt="Stardew Valley text logo"></a>
+    </header>
+    <main>
+        <h1>Memory Game</h1>
+        <div class="meta">
+            <div>Moves: <span class="moves"></span></div>
+            <div>Time: <span class="timer"></span></div>
+        </div>
 
-<!-- All card images from Stardew Wiki https://stardewvalleywiki.com-->
-    <div class="memory-game">
-        <div class="memory-card" data-pic="Abigail">
-            <img class="front-face" src="assets/images/abigail.webp" alt="Abigail">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+        <!-- All card images from Stardew Wiki https://stardewvalleywiki.com-->
+        <div class="memory-game">
+            <div class="memory-card" data-pic="Abigail">
+                <img class="front-face" src="assets/images/abigail.webp" alt="Abigail">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Abigail">
+                <img class="front-face" src="assets/images/abigail.webp" alt="Abigail">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Caroline">
+                <img class="front-face" src="assets/images/caroline.webp" alt="Caroline">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Caroline">
+                <img class="front-face" src="assets/images/caroline.webp" alt="Caroline">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Chicken">
+                <img class="front-face" src="assets/images/chicken.webp" alt="Chicken">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Chicken">
+                <img class="front-face" src="assets/images/chicken.webp" alt="Chicken">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Cat">
+                <img class="front-face" src="assets/images/cat.webp" alt="Cat">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Cat">
+                <img class="front-face" src="assets/images/cat.webp" alt="Cat">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Emily">
+                <img class="front-face" src="assets/images/emily.webp" alt="Emily">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Emily">
+                <img class="front-face" src="assets/images/emily.webp" alt="Emily">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Krobus">
+                <img class="front-face" src="assets/images/krobus.webp" alt="Krobus">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
+            <div class="memory-card" data-pic="Krobus">
+                <img class="front-face" src="assets/images/krobus.webp" alt="Krobus">
+                <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
+            </div>
         </div>
-        <div class="memory-card" data-pic="Abigail">
-            <img class="front-face" src="assets/images/abigail.webp" alt="Abigail">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Caroline">
-            <img class="front-face" src="assets/images/caroline.webp" alt="Caroline">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Caroline">
-            <img class="front-face" src="assets/images/caroline.webp" alt="Caroline">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Chicken">
-            <img class="front-face" src="assets/images/chicken.webp" alt="Chicken">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Chicken">
-            <img class="front-face" src="assets/images/chicken.webp" alt="Chicken">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Cat">
-            <img class="front-face" src="assets/images/cat.webp" alt="Cat">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Cat">
-            <img class="front-face" src="assets/images/cat.webp" alt="Cat">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Emily">
-            <img class="front-face" src="assets/images/emily.webp" alt="Emily">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Emily">
-            <img class="front-face" src="assets/images/emily.webp" alt="Emily">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Krobus">
-            <img class="front-face" src="assets/images/krobus.webp" alt="Krobus">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-        <div class="memory-card" data-pic="Krobus">
-            <img class="front-face" src="assets/images/krobus.webp" alt="Krobus">
-            <img class="back-face" src="assets/images/card-back.webp" alt="back of card">
-        </div>
-    </div>
-
+    </main>
     <script src="assets/app.js"></script>
 </body>
 
