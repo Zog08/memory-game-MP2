@@ -1,6 +1,6 @@
 # Stardew Valley Themed Memory Game - Testing
 
-![Mock-up](mockups/mockup-allscreens.png)
+![Mock-up](docs/mockups/mockup-allscreens.png)
 
 #### **By Zoe Heathcote**
 [Click here to view the live web application](https://zog08.github.io/memory-game-MP2)
@@ -36,7 +36,6 @@ While building my memory game site I developed a comprehensive testing plan to e
 
 My manual testing involved going through the game and manually checking all elements behaved as expected and making sure that the JavaScript was producing the correct results based on the user selections. I have also included details of automated testing/validation that I undertook which included validation for HTML & CSS and checking the site for accessibilty and performance. The site was tested throughout the process, both in the development and deployed version of the sites. All the test results detailed below are based on the [deployed site](https://zog08.github.io/memory-game-MP2). 
 
-////////////////////////////////////////////done to here!!/////////////////////
 ## Automated Checks and Validation
 
 ### HTML Validation
@@ -45,56 +44,39 @@ I ran the code for all the pages through the [W3C HTML Validator](https://valida
 
 #### **Errors**
 
-There were 5 errors, some occurring on multiple elements:
+There were 2 errors, some occurring on the same element across multiple pages:
 
-<details><summary>Error 1</summary>
-<img src="docs/testing/testing_htmlval1.jpeg">
-</details>
+<summary>Error 1</summary>
 
-* An empty "action" attribute on the form
-* Fix: remove the action attribute
+* I had closed my image tags with a trailing /> which isnt relevant to coding today.
+* Fix: remove the trailing /> and replace with > on all image tags.
 
-<details><summary>Error 2</summary>
-<img src="docs/testing/testing_htmlval2.jpeg">
-</details>
+<summary>Error 2</summary>
 
-* A stray `</input>` end tag
-* Fix: remove the tag
-
-<details><summary>Error 3</summary>
-<img src="docs/testing/testing_htmlval3.jpeg">
-</details>
-
-* An error relating to the "role" attribute on the tie-break buttons images (based on a method to improve accessibility for background images that I researched online)
-* Fix: remove role attribute
-
-<details><summary>Error 4</summary>
-<img src="docs/testing/testing_htmlval4.jpeg">
-</details>
-
-* An empty "src" attribute on the highlight images (which would be populated by the JavaScript)
-* Fix: Give the src a value of one of the highlight images as a placeholder (removing the src entirely throws up a different error)
-
-<details><summary>Error 5</summary>
-<img src="docs/testing/testing_htmlval5.jpeg">
-</details>
-
-* On the 404 page the `<button>` element was a descendant of an `<a>` element
-* Fix: change the `<button>` to an `<a>` element
-
+* I had neglected to add the logo image / link into a header section (this also threw up errors in my WAVE report)
+* Fix: Add header section above body HTML with the logo inside.
 
 
 #### **HTML Validation Post-Fix**
 
 <details><summary>HTML Validation Final Results - index.html</summary>
-<img src="docs/testing/testing_htmlval_final1.jpeg">
+<img src="docs/testing/htmlchecker-index.png">
+</details>
+
+<details><summary>HTML Validation Final Results - game.html</summary>
+<img src="docs/testing/htmlchecker-game.png">
+</details>
+
+<details><summary>HTML Validation Final Results - end.html</summary>
+<img src="docs/testing/htmlchecker-end.png">
 </details>
 
 <details><summary>HTML Validation Final Results - 404.html</summary>
-<img src="docs/testing/testing_htmlval_final2.jpeg">
+<img src="docs/testing/htmlchecker-404.png">
 </details>
 
 - - -
+////////////////////////////////////////////done to here!!have put jshint in css section, move about!/////////////////
 
 ### CSS Validation
 
@@ -102,22 +84,27 @@ I ran the CSS code through the [W3C CSS Validator](https://jigsaw.w3.org/css-val
 
 #### **Errors**
 <details><summary>CSS Validation Initial Results</summary>
-<img src="docs/testing/testing_cssval1.jpeg">
+<img src="docs/testing/csschecker-prefix.png">
 </details>
 
-There were 2 errors:
+There were 4 errors:
 
-Error 1: Mis-spelling of 'absolute'
-* Fix: remove position value (not doing anything)
+Error 1: Missing semi-colons
+* Fix: Added semi-colons at the end of lines
 
-Error 2: incorrect aspect ratio value
-* Fix: remove aspect ratio (not doing anything)
+Error 2: "Expected an assignment or function call and instead saw an expression"
+* Fix: No fix. This is correct code, as an on-click event found in HTML.
 
+Error 3: Interval undefined
+* Fix: No fix. Needed within the context of the timer function.
+
+Error 4: saveHighScore undefined.
+* Fix: No fix. This is correct code, this is defined within HTML as an onclick event.
 
 #### **CSS Validation Post-Fix**
 
 <details><summary>CSS Validation Final Results</summary>
-<img src="docs/testing/testing_cssval2.jpeg">
+<img src="docs/testing/csschecker-postfix.png">
 </details>
 
 - - -
