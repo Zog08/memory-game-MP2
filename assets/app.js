@@ -1,9 +1,13 @@
-const cards = document.querySelectorAll('.memory-card'); // get all memory cards
-const counter = document.querySelector(".moves"); // moves counter div
-const time =  document.querySelector(".timer"); // timer div
-const accordion = document.querySelectorAll(".panel"); // target the panels for the drop down accordion on index page
+// get all memory cards
+const cards = document.querySelectorAll('.memory-card'); 
+// moves counter div
+const counter = document.querySelector(".moves"); 
+// timer div
+const time =  document.querySelector(".timer"); 
+// target the panels for the drop down accordion on index page
+const accordion = document.querySelectorAll(".panel"); 
 
-// accordion function - with help from Laurence Svekis on Udemy https://www.udemy.com/share/101XdM/
+// accordion function on index page - with help from Laurence Svekis on Udemy https://www.udemy.com/share/101XdM/
 accordion.forEach(function (ele) {              
     ele.addEventListener('click', toggleEle);
 });
@@ -15,7 +19,7 @@ function toggleEle(e) {
     this.classList.toggle('active');
 }
 
-//----------------- Store cards
+//Store cards
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -89,7 +93,7 @@ function stopTimer() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-// ----------------------------------------- game over
+// Assigned constants for game over
 const finalScore = document.getElementById("final-score");
 const username = document.getElementById("username");
 const saveScoreBtn = document.getElementById("save-score-btn");
@@ -138,7 +142,7 @@ localStorage.setItem("highScores", JSON.stringify(highScores)); // keeps the pre
 window.location.reload();                           // reloads page when you click save, to show updated hiscore board
 };
 
-highScoresList.innerHTML = highScores   
+highScoresList.innerHTML = highScores               // Adds name and hi-score to the score board on end page, if in top 5 score
         .map(score => {
             return `<li class="high-score">${score.name} - ${score.score}</li>`;
         })
