@@ -76,7 +76,6 @@ There were 2 errors, some occurring on the same element across multiple pages:
 </details>
 
 - - -
-////////////////////////////////////////////done to here!!have put jshint in css section, move about!/////////////////
 
 ### CSS Validation
 
@@ -84,28 +83,13 @@ I ran the CSS code through the [W3C CSS Validator](https://jigsaw.w3.org/css-val
 
 #### **Errors**
 <details><summary>CSS Validation Initial Results</summary>
-<img src="docs/testing/csschecker-prefix.png">
+<img src="docs/testing/csschecker-noerrors.png.png">
 </details>
 
-There were 4 errors:
+There were no errors, but 1 warning:
 
-Error 1: Missing semi-colons
-* Fix: Added semi-colons at the end of lines
-
-Error 2: "Expected an assignment or function call and instead saw an expression"
-* Fix: No fix. This is correct code, as an on-click event found in HTML.
-
-Error 3: Interval undefined
-* Fix: No fix. Needed within the context of the timer function.
-
-Error 4: saveHighScore undefined.
-* Fix: No fix. This is correct code, this is defined within HTML as an onclick event.
-
-#### **CSS Validation Post-Fix**
-
-<details><summary>CSS Validation Final Results</summary>
-<img src="docs/testing/csschecker-postfix.png">
-</details>
+Warning 1: -webkit-transition-duration is a vendor extension
+* Fix: No fix, these vendor extensions help support browser compatibility and are proprietary code that the validator cannot assess properly.
 
 - - -
 
@@ -113,140 +97,32 @@ Error 4: saveHighScore undefined.
 
 I ran the JavaScript code through [JSHint](https://jshint.com/). 
 
-There were no errors but there were a number of warnings which can be groups as follows:
+There were no errors but there were a number of warnings which can be grouped as follows:
 
-<details><summary>Warning 1: Missing or unnecessary semi-colons</summary>
-<img src="docs/testing/testing_jsval1.jpeg">
+<details><summary>Pre-Fix JS Warnings / Comments</summary><img src="docs/testing/jschecker-prefix.png.png">
 </details>
 
-* Fix: remove or add semi-colons as appropriate
+<summary>Warning 1: Missing semi-colons</summary>
 
+* Fix: add semi-colons as appropriate
 
-<details><summary>Warning 2: Functions declared within loops referencing an outer scoped variable may lead to confusing semantics.</summary>
-<img src="docs/testing/testing_jsval2.jpeg">
-<img src="docs/testing/testing_jsval3.jpeg">
-</details>
+<summary>Warning 2: "Expected an assignment or function call and instead saw an expression"</summary>
 
-* Fix: I did extensive investigation about these warnings, it seems to relate to the way I've written the function within the loop which could made the code difficult to read. There were 2 incidences of this within the code.
-    1. One of them was within the Google Map API recommended syntax, I therefore left this function within the loop as this was what had been recommended by Google for use with their API.
-    ```
-    //Attach click event to the marker & populate page with data
-        (function (marker, data) {
-            google.maps.event.addListener(marker, "click", function (e) {
-                highlightTitle.innerText = this.title;
-                highlightText.innerText = this.text;
-                imageOne.src = `assets/images/countries/highlights/${this.images[0].img}`;
-                imageOne.alt = this.images[0].alt;
-                imageTwo.src = `assets/images/countries/highlights/${this.images[1].img}`;
-                imageTwo.alt = this.images[1].alt;
-                imageThree.src = `assets/images/countries/highlights/${this.images[2].img}`;
-                imageThree.alt = this.images[2].alt;
-                imageFour.src = `assets/images/countries/highlights/${this.images[3].img}`;
-                imageFour.alt = this.images[3].alt;
-                highlightInfoDiv.classList.remove("hidden");
-                // timeout to allow photos to load before scroll
-                setTimeout(function () {
-                    countryHighlightDiv.scrollIntoView(false, {
-                        behavior: 'smooth'
-                    });
-                }, 150);
+* Fix: No fix. This is correct code, as an on-click event found in HTML.
 
-            });
-        })(marker, data);
-    ```
-    2. The other place that this warning occured was in the tie breaker, where I had declared an anonymous function within a loop.
-    ```
-    // sets the winning personality based on clicked image & reveals results
-            for (let i = 0; i < tieChoices.length; i++) {
-                tieChoices[i].addEventListener("click", function () {
-                    let tieWinner = tieChoices[i].getAttribute("data-type");
-                    personalityTally.push(tieWinner);
-                    topPersonality = personalityTally[personalityTally.length - 1];
+I did extensive investigation about these warnings, it seems to relate to the way I've written the function.
 
-                    // updates scores again post tie-break selection
-                    for (let i = 0; i < personalities.length; i++) {
-                        personalities[i].score = elementCount(personalityTally, personalities[i].type)
-                        scoreArray.push(personalities[i].score);
-                    };
+<summary>Warning 3: Undefined Variables</summary>
 
-                    // Reveals results
-                    chooseCountry();
-                    showResults(topPersonality);
-                });
-            }
-
-    ```
-
-    I made a number of attempts to re-write the code in a way that declared the function outside of the loop, however each attempt caused a different console error and the app failed to work, with the tie breaker click event not working and the results not being calculated. I therefore decided to leave the code as it was, based on the fact that it was a warning that came down to the readability of the code, though learning from this for future JavaScript projects to avoid these warnings.
-
-
-<details><summary>Warning 3: Do not use "new" for side effects</summary>
-<img src="docs/testing/testing_jsval4.jpeg">
-</details>
-
-* Fix: This warning related to the Chart.js code. I had used the syntax and code suggested by Chart.js, but JSHint threw up a warning about using new with an undeclared variable. After researching online I found a solution [here](https://stackoverflow.com/questions/33287045/eslint-suppress-do-not-use-new-for-side-effects) and made the warning disappear by adding a new variable and storing the chart within that. However this then threw up a different warning about an unused variable (chart). I decided as this was a warning rather than an error to leave the code as it was as it had been taken directly from the chart.js documentation and was working correctly.
-    ```
-    // build piechart
-        new Chart("myChart", {
-            type: "pie",
-            data: {
-                labels: pieLabels,
-                datasets: [{
-                    backgroundColor: barColors,
-                    data: yValues,
-                    borderWidth: 0
-                }]
-            },
-    ```
-
-
-<details><summary>Warning 4: Undefined Variables in Google Maps API and Chart.js</summary>
-<img src="docs/testing/testing_jsval5.jpeg">
-</details>
-
-* Fix: This error related to variables declared elsewhere in the JavaScript code within Google Maps API and Chart.js. JSHint was unable to access this code to see the original variable declaration so threw up a warning, but, upon investigation, I found that this was only an issue relating to what information JSHint could access as I had followed good practice proceedures for both external JavaScript files as suggested in their documentation.
-    ```
-        // 'Chart' is defined in the external chart.js files
-        // new Chart
-        new Chart("myChart", {...
-    ```
-    ```
-        // from map.js - parts that refer to 'google' which is defined in the external Google Maps API js files.
-        // new map
-        const map = new google.maps.Map(document.getElementById("map"), {
-
-        // setting the map location
-        let myLatlng = new google.maps.LatLng(data.lat, data.lng);
-
-        // setting the map markers
-        let marker = new google.maps.Marker({
-
-        // adding the click event to the markers
-        (function (marker, data) {
-            google.maps.event.addListener(marker, "click", function (e) {...
-    ```
-
-
-<details><summary>Warning 5: Undeclared/Unused Variables</summary>
-<img src="docs/testing/testing_jsval6.jpeg">
-</details>
-
-* Fix: remove undeclared variables where appropriate. One of these warnings was due to the function being called in index.html to handle the form submission for the username. This was shown to us as good practice for handling form submission by Code Institute so I left it as it was (see code snippet below).
-    ```
-    // In index.html
-    <form id="start-form" method="POST" onsubmit="startGame(event)">
-
-    // in quiz.js
-    function startGame(event)
-    ```
-
+* Fix: These variables are referred to outside .js file (as onclick events within html etc) and therefore arent picked up by the input method of css checker
 
 #### **JavaScript Validation Post-Fix**
 
 <details><summary>JavaScript Validation Final Results</summary>
-<img src="docs/testing/testing_jsval_final.jpeg">
+<img src="docs/testing/jschecker-postfix.png.png">
 </details>
 
+////////////////////////////////////////////done to here!!/////////////////
 
 - - -
 
