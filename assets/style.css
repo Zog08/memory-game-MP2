@@ -9,6 +9,7 @@
 body {
     display: flex;
     flex-direction: column;
+    background-color: #175aa1;
     background-image: url("images/svbackground.webp");
     background-repeat: no-repeat;
     background-size: cover;
