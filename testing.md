@@ -82,9 +82,7 @@ There were 2 errors, some occurring on the same element across multiple pages:
 I ran the CSS code through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input). 
 
 #### **Errors**
-<details><summary>CSS Validation Initial Results</summary>
-<img src="docs/testing/csschecker-noerrors.png.png">
-</details>
+<summary>CSS Validation Initial Results</summary>
 
 There were no errors, but 1 warning:
 
@@ -99,7 +97,7 @@ I ran the JavaScript code through [JSHint](https://jshint.com/).
 
 There were no errors but there were a number of warnings which can be grouped as follows:
 
-<details><summary>Pre-Fix JS Warnings / Comments</summary><img src="docs/testing/jschecker-prefix.png.png">
+<details><summary>Pre-Fix JS Warnings / Comments</summary><img src="docs/testing/jschecker-prefix.png">
 </details>
 
 <summary>Warning 1: Missing semi-colons</summary>
@@ -132,46 +130,45 @@ I ran the site through the [Wave Web Accessibility Evaulation Tool](https://wave
 
 #### **Accessibility Errors**
 
-On index.html there were 2 warnings, some occurring on multiple elements:
+On index, game and end .html there were 2 warnings, the same occuring across the pages:
 
-<details><summary>Warning 1</summary>
-<img src="docs/testing/testing_waveval1.jpeg">
+<details><summary>Warnings and screenshot</summary>
+<img src="docs/testing/wave-index-prefix.png">
 </details>
 
-* Missing heading level
-* Fix: change `<h3>`to `<h2>`
+##### Alert 1: Missing structural element
+* Missing Header section
+* Fix: Added Header section within html, with logo image and link within
 
-<details><summary>Warning 2</summary>
-<img src="docs/testing/testing_waveval2.jpeg">
-<img src="docs/testing/testing_waveval3.jpeg">
-</details>
+##### Alert 2: Contrast error
+* Low contrast on h1 across all pages
+* Fix: I had not set a fallback background colour in case the background image fails to load. Set background colour for body. Also checked manually that the image and h1 text had sufficient contrast (7.92:1, passes)
 
-* Possible headings x3
-* Fix: Changed all recommended elements to heading elements, changing the CSS styling accordingly.
+<details><summary>Post-fix 404 page and screenshots</summary><img src="docs/testing/wave-404-postfix.png"><img src="docs/testing/wave-404-postfix-details.png"></details>
 
-There were no errors or warnings on 404.html.
+##### Alert 3: No fix made
+
+* Redundant link
+* I decided not to change the content of this 404 page. The test showed that there were two links next to each other that were the same. This was the 'Go Home' button beneath the 404 message, and also the link within the the page header logo. I decided that for the sake of continuity across the pages that I shouldn't remove the link from the top logo. I decided that I should keep the button to instruct the player to return to the index page as without it the page would be very confusing to navigate away from. These reasons, coupled with the hope that the 404 page wouldn't be needed very often and did not form part of the normal day-to-day usage of the page, I have concluded to ignore the warning on this page only.
 
 #### **Wave Web Accessibility Results Post-Fix**
 
 <details><summary>Wave Web Accessibility Final Results - index.html</summary>
-<img src="docs/testing/testing_waveval_final.jpeg">
+<img src="docs/testing/wave-index-postfix.png">
 </details>
 
-<details><summary>Wave Web Accessibility Final Results - 404.html</summary>
-<img src="docs/testing/testing_waveval_final2.jpeg">
+<details><summary>Wave Web Accessibility Final Results - index.html</summary>
+<img src="docs/testing/wave-game-postfix.png">
+</details>
+
+<details><summary>Wave Web Accessibility Final Results - index.html</summary>
+<img src="docs/testing/wave-end-postfix.png">
 </details>
 
 
 #### **Additional Accessibility Checks - Placeholder Text & Images**
 
-When tidying up the project in the final stages before submission I removed placeholders which I'd used in some of the HTML elements (e.g. headings, buttons, images, alt-values). These were elements that would later be populated based on user answers, e.g. the image of the winning country, or text about the user's personality. However, as a precaution I ran an additional accessibility test before submission to check the code. It threw up errors about empty elements and empty alt-values. I therefore decided to reinstate some basic placeholder content to the site to avoid these errors.
-
-<details><summary>Test results - after removing placeholder data</summary>
-<img src="docs/testing/testing_waveval4.jpeg">
-</details>
-<details><summary>Test results - after reinstating placeholder data</summary>
-<img src="docs/testing/testing_waveval5.jpeg">
-</details>
+When tidying up the project in the final stages before submission I did some general house keeping and testing to ensure that everything looked easily readable to my own knowledge. I manually tested with the cherry picker tool on WAVE where a font appeared above my background image. I also ensured that all alt texts were sensibly named and didnt contain any uneeded or confusing information. I ensured that my form inputs were properly labelled.
 
 
 - - -
