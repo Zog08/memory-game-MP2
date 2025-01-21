@@ -120,8 +120,6 @@ I did extensive investigation about these warnings, it seems to relate to the wa
 <img src="docs/testing/jschecker-postfix.png.png">
 </details>
 
-////////////////////////////////////////////done to here!!/////////////////
-
 - - -
 
 ### Accessibility
@@ -170,76 +168,49 @@ On index, game and end .html there were 2 warnings, the same occuring across the
 
 When tidying up the project in the final stages before submission I did some general house keeping and testing to ensure that everything looked easily readable to my own knowledge. I manually tested with the cherry picker tool on WAVE where a font appeared above my background image. I also ensured that all alt texts were sensibly named and didnt contain any uneeded or confusing information. I ensured that my form inputs were properly labelled.
 
-
 - - -
 
 ### Performance
 
-I ran the site through Google Chrome Dev Tools' Lighthouse to check on its performance.
+I ran the site through Google Chrome Dev Tools' Lighthouse to check on its performance on both mobile and desktop devices, where the scores and comments were identical for both devices tested.
+I found that my website scored excellently in all areas tested, but I decided to look into some of the smaller warnings that were flagging to see improvements could be made in the timeframe given.
 
-#### **Original Results**
-<details><summary>Main Page</summary>
-<img src="docs/testing/testing_lh_main_desktop.jpeg">
+#### **Results**
+<details><summary>All Pages - console warning</summary>
 
-*Main Page - Desktop*
-
-<img src="docs/testing/testing_lh_main_mobile1.jpeg">
-
-*Main Page - Mobile*
-
-<img src="docs/testing/testing_lh_main_mobile2.jpeg">
-
-*Main Page - Mobile - Accessibility Warning*
-
+* 'Best Practise' flagged an error in console, "Browser errors were logged to the console"
+* Decision made to not change the code to improve this score. The error is logged because before the game is played there is no score to save / get from local storage hence the null output. This error does not show when tested after a game is played and the mostRecentScore is ready in local storage to be retrieved by the function that sets the innerText.
+<img src="docs/testing/lighthouse-index.png">
+<img src="docs/testing/lighthouse-game-error.png">
 </details>
 
-<details><summary>404</summary>
-<img src="docs/testing/testing_lh_404_desktop.jpeg">
+<details><summary>Console Error Test Rerun</summary>
 
-*404 - Desktop*
+* Lighthouse test re-run after playing game where there is a mostRecentScore stored locally and ready to get.
 
+<img src="docs/testing/lighthouse-end-noconsolewarning.png">
+</details>
+
+
+<details><summary>Other Pages Results</summary>
+
+**Game Page**
+<img src="docs/testing/htmlchecker-gamepage.png">
+
+**End Page**
 <img src="docs/testing/testing_lh_404_mobile1.jpeg">
 
-*404 - Mobile*
+**404 Page**
+This page had a warning for 'Low resolution image used'. I decided not to change the image because there was no other image of the Stardew specific magnifying glass available in greater resolution. I decided that because the image is small and by its very nature supposed to look lo-fi and pixelated that it did not affect enjoyment of the game. The previously found console warning also showed here, but if I retested with a mostRecentScore saved in the local storage, again this improved the score.
 
-<img src="docs/testing/testing_lh_404_mobile2.jpeg">
-
-*404 - Mobile - SEO Warning*
-
-</details>
-
-There were 2 issues of concern: 
-
-1. The accessibilty score was being affected by the maximum scale attribute that I had added to the meta tag in the HTML to stop mobile browsers automatically zooming in on the input field where the user enters their name, which would then not reset when the game appeared, leaving the web page slightly zoomed in, which created a bad user experience. [See bugs section below](#4-mobile-input-zoom-in-not-resetting).
-I had not considered the impact on accessibility, that not allowing users to zoom in might cause issues for those with visual impairment so in order to overcome this I did some research and discovered that mobile web browsers tend to only zoom in if the font size on an input is less than 16px. So I removed the maximum scale attribute and simply changed the size of the placeholder & user-inputted text to 16px.
-
-2. On the 404 page the SEO score was being affected by the size of the social link icons, they needed to be bigger to be easy to click on a mobile device, though this warning didn't come up on the main page. Upon investigation I realised I had made changes to the footer on the main page and not on the 404 page, so the icons were displaying differently with less space between them. I fixed this code by replacing the footer on the 404 page with the correct one and this fixed the warning.
-
-
-#### **Final Results**
-<details><summary>Main Page</summary>
-<img src="docs/testing/testing_lh_main_desktop_final.jpeg">
-
-*Main Page - Desktop*
-
-<img src="docs/testing/testing_lh_main_mobile_final.jpeg">
-
-*Main Page - Mobile*
-
-</details>
-
-<details><summary>404</summary>
-<img src="docs/testing/testing_lh_404_desktop_final.jpeg">
-
-*404 - Desktop*
-
-<img src="docs/testing/testing_lh_404_mobile_final.jpeg">
-
-*404 - Mobile*
+<img src="docs/testing/lighthouse-404.png">
 
 </details>
 
 - - -
+
+////////////////////////////////////////////done to here!!/////////////////
+
 ## Manual Testing
 ### Testing User Stories
 
