@@ -9,7 +9,7 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: #175aa1;
+    background-color: #046aca;
     background-image: url("images/svbackground.webp");
     background-repeat: no-repeat;
     background-size: cover;
@@ -127,7 +127,7 @@ h1 {
     margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid teal;
+    border: 2px solid #046aca;
     perspective: 1000px;
     /* create 3D depth for card to flip in 3D*/
 }
@@ -137,7 +137,7 @@ h1 {
     aspect-ratio: 1;
     margin: 5px;
     position: relative;
-    border: 4px solid chocolate;
+    border: 4px solid brown;
     background-color: #f6b561;
     transform: scale(1);
     transform-style: preserve-3d;
@@ -158,7 +158,7 @@ h1 {
 }
 
 .front-face {
-    border: 2px solid chocolate;
+    border: 2px solid brown;
     background: #f6b561;
 }
 

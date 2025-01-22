@@ -106,7 +106,6 @@ The artwork in the background, fonts and images are all taken from the official 
 
 - - -
 ### Design, Layout & Structure
->>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
 
 #### **Wireframes**
 I decided to create a fully designed site in Balsamiq, developing the structure, skeleton and layout as well as the style and look of the site, making all major creative design decisions, including the colours, fonts & layout prior to beginning coding. I created a site that was very similar over mobile, tablet and desktop and made sure that responsiveness was at the forefront of the application from the beginning.
@@ -146,38 +145,49 @@ I decided to create a fully designed site in Balsamiq, developing the structure,
 
 The structure of the site is informed by the scope, user and business goals as well as the principles of IXD (interaction design) to make sure I was conforming to users' expectations and making everything as intuitive as I could.
 
-The site has a simple structure, everything apart from the 404 page is contained on a single web page (index.html) with all the content replaced by the JavaScript code at different points in the game. There are 3 main divs within the page which appear and disappear depending on where you are in the game, these are:
+The site has a simple structure, there are in total, 3 pages plus the 404 page. The game is contained on one page. The HTML is kep to a minimum where possible, and javascript introduces this via functions as the game is played.
 
-* Welcome - a brief intro with a name capture input to personalise the user's results and a start game button
-* Game - the main game play area, with a progress bar, question, answer options to choose from and a 'restart game' button
-* Results - the results of the quiz, showing the user's personality results breakdown in the form of a pie chart and text information as well as a recommended destination based on their responses to the quiz. This page also contains a button to take the user back to the start to begin the quiz again.
+* Start Page - a brief intro with a drop down menu to read the rules of the game, and a button to click to play the game.
+* Game Page - the main game play area, with a moves counter and timer, and an option to click back to the start screen via the main logo
+* End Page - the results of the game, with total moves shown and a form with input to save your name to a hi-score list. There is also buttons to direct straight back to the game to play again, or a button to go back to the main start page.
 
-There is also a 404 page for when a user lands on a non-existent page with a button to link back to index.html to start the quiz again
+There is also a 404 page for when a user lands on a non-existent page with a button to link back to index.html to start the game again
 
-Both the main index.html and 404 page contain a logo at the top (not clickable to avoid the user mistakenly clicking it and having to start the quiz again) and a cloud graphics footer, containing my name and social links.
+All pages have a clickable logo header at the top of the screen to redirect back to the start page for consistency.
 
 - - -
 #### **Colour & Design**
 
-The design of the site is influenced by the view out the window on a plane journey, with the 'paper-like' clouds with drop shadows at the bottom as the footer and a light, airy gradient background as the sky. I have therefore used shades of blue for the colour palette, with a contrasting shades of orange for key elements to allow for good legibility.
+The design of the site is influenced by the original Stardew Valley game (https://www.stardewvalley.net/), using elements of the original game design such as the background photo, fonts and images of the characters. I have therefore used shades that match the original design and branding of Stardew Valley. I have ensured that the fonts chosen are compatible with accessibility in terms of size, colours and legibility.
+I colour picked using coolors.co using a Stardew Valley theme screenshot, then altered these codes to find a final, well contrasted, colour palette considering the by nature very busy design of the graphics.
 
-![Main Colour Pallette](docs/colors/color-pallette-01.jpg)
+<details><summary>Initial Colour Picker from Screenshot</summary>
+<img src="docs/colours/picker-screenshot-colors.webp">
+</details>
 
-In addition I created a colour palette for the pie chart and personality types, with each colour corresponding to a personality. These make the data more visual for the user. These colours are all soft, slightly desaturated to match the overall light, airy feel of the site design.
+<details><summary>Initial Colour Palette</summary>
+<img src="docs/colours/picker-palette-colors.webp">
+</details>
 
-![Pie Chart Colour Pallette](docs/colors/color-pallette-02.jpg)
+<details><summary>Adjusted Final Colour Palette</summary>
+<img src="docs/colours/stardew-valley-final.webp">
+</details>
+
 
 - - -
 **Other Design Choices**
-* The use of drop shadows & inner shadows to match the layered paper effect on the footer
-* Consistent use of border radius to give the site a soft, rounded feel and match the rounded cloud design
+* The use of shadows on boxes and fonts to ensure legibility and to make them pop in the very 2d nature of the design.
+* Consistent use of border on boxes, input, cards in brown to lift the elements from the busy background while keeping in theme
+* The use of a themed cursor, a 'Junimo' that looks like a little apple character when hovering over the cards on desktop
 
 - - -
 #### **Fonts**
 
-I imported [Google Fonts](https://fonts.google.com/) and used [Righteous](https://fonts.google.com/specimen/Righteous) (with a fallback of Sans Serif) for the logo and some of the main headings. I felt this font had a slightly exotic, exciting look which added to the travel theme. It also has good legibility and is eye-catching. I also used [Raleway](https://fonts.google.com/specimen/Raleway) (with a fallback of Sans Serif) for the main body text as it contrasted well with the heading font, had good flexibility with a range of weights and is known for being clear and legible as an online font, as well as having a warm, friendly roundness to it.
+I downloaded the specialty font as a .woff file straight into the documents. The font from Stardew Valley was not available on Google Fonts or similar, therefore this was the only way it could be done. It was found on reddit made by user @cowsplay and downloaded from [their dropbox](https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlkey=jt2mobz467ah9vhcyf404244e&e=1&st=zss04ys1&dl=0)
+I had a fallback font of sans-serif standard font as I felt this was a good match with the 8-bit simplified nature of the design. 
 
 - - -
+>>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
 ## Technologies Used
 
 ### Languages
