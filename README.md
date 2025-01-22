@@ -204,31 +204,40 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
     * Used to store the project code after being created in GitPod / Git
 * [Gitpod](https://www.gitpod.io/)
     * Used to create, edit & preview the project's code
-* [Figma](https://www.figma.com/)
+* [Balsamiq](https://www.balsamiq.com/)
     * Used to develop the wireframes in to a full mockup including colours, fonts, proportions etc
-* [Google Fonts](https://fonts.google.com/)
-    * Used to select & import the fonts to the project (Poppins & Fira Sans)
-* [Font Awesome](https://fontawesome.com/)
-    * Used to add icons to the site
-* [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html)
-    * Used to help create the colour pallette as well as adjusting the background image
-* [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop.html)
-    * Used to crop, adjust and resize the photos to optimise them for the site
+* [Reddit for Stardew Font](https://www.reddit.com/r/StardewValley/comments/4dtgp7/by_popular_request_a_stardew_valley_font_for_your/) Reddit user @cowsplay had built a custom font for use with attribution.
+    * Used to select & import the font to the project (Stardew Valley Font)
+* [Stardew Valley Web Site](https://stardewvalley.net/)
+    * Provided by ConcernedApe, the official Stardew Valley page. Used for design research and themes.
+* [Stardew Valley Wiki](https://stardewvalleywiki.com/)
+    * Open source wiki page for Stardew Valley fans. Used for design research and to download all character cards, custom cursor, favicon, colour palette, images and background image
+* [Coolors](https://www.coolors.co)
+    * Used to help create the colour pallette with their picker tool, and adjust to find final colour palette
+* [Cloudinary](https://cloudinary.com/tools/png-to-webp)
+    * Used to change images to webp format
 * [Tiny PNG](https://tinypng.com/)
     * Used to further optimise the images for the site and reduce file size
-* [Bulk Image Crop](https://bulkimagecrop.com/)
-    * Used to bulk crop bulk
-* [ezGIF](https://ezgif.com/)
-    * Creating GIFs for the README
 * [Techsini Mockup](https://techsini.com/multi-mockup/)
     * Creating the mockup images for the README
-* [Favicon.io](https://favicon.io/favicon-converter/)
-    * Used to create and add the favicon to the browser tab
-* [Chart.js](https://www.chartjs.org/)
-    * Used to create and style the pie chart based on user personality results
-* [Google Maps API](https://developers.google.com/maps)
-    * Linked to Google Maps API to load the relevant country map and create clickable markers
-
+* [Google Chrome](https://google.com/chrome)
+    * Used for web browser as default, development tools and also for testing via Lighthouse service.
+* [WAVE](https://https://wave.webaim.org/)
+    * WAVE accessibility reports during testing
+* [JSHint](https://jshint.com)
+    * JS Hint was used during testing to verify and spot errors in my javascrip code
+* [W3C HTML Validator service](https://https://validator.w3.org/)
+    * Used during testing to validate HTML code to help spot any errors or warning etc
+* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+    * Used during testing to validate HTML code to help spot any errors or warning etc
+* [Stack Overflow](https://stackoverflow.com)
+    * Used during build for help and advice, as documented in notes
+* [Youtube](https://youtube.com)
+    * Channels used to help with specific functions and styling,  @cognivisAI 
+* [Udemy] (https://udemy.com)
+    * Help and tutoring, courses from Laurence Svekis and Colt Steele
+* [Code Institute](https://codeinstitute.com)
+    * Initial training, support, mentoring and tutoring
 - - -
 ## Features
 
