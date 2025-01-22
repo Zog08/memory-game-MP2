@@ -274,39 +274,36 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 * The logo is clickable. The 404 page had an alert on WAVE accessibility because of this, because it is a neighbour to the same link destination, namely the 'Go Home' button. I decided to ignore this warning as the 404 page is seldom visited and doesn't affect enjoyment of the game, and because I think it would be confusing to get back to the index page without the link in the logo if it broke from the way the logo worked on all other pages.
 
 - - -
->>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
 
-### Welcome Section
+### Index Page - Welcome
 
-![Welcome Section - Mock Up](docs/mockups/mockup_2_welcome.jpeg)
+![Welcome Section - Mock Up](docs/mockups/mockup-index.png)
 
 <details><summary>Screenshots</summary>
 
-<img src="docs/features/features_welcome_dt.jpeg">
-<img src="docs/features/features_welcome_tb.jpeg">
+<img src="docs/features/features-index-welcome.png">
 
-*Welcome section*
+*Welcome page initial menu*
 
-<img src="docs/features/features_welcome_startquiz.jpeg">
+<img src="docs/features/features-index-welcome-howtoplay.png">
 
-*Welcome section - start quiz button*
+*Welcome page - 'How To Play' accordion*
 
-<img src="docs/features/features_welcome_startquiz.gif">
+<img src="docs/features/features-index-welcome-clicktoplay.png">
 
-*Hover effect on button*
+*Welcome page - 'Click To Play' button accordion*
 
 </details>
 
-* Brief text info about the game, how it works & encouraging the user to play
-* Layout is responsive with margins changing on smaller devices
-* Name input box
-    * User must enter a name to start game - alert with appears if no name entered
-    * Name is used in the results section to personalise the results
-    * Has a character max of 10 and min of 2 to make the text in the results section work visually
-* Start Quiz button - launches the quiz
-    * Has a hover effect on non touchscreen devices with a smooth colour transition
+* Recognisable design and interface with Stardew Valley Theme
+* Easy to find and use accordions with rules and play within each one.
+* When one accordion is in use, the other collapses back
+* Click to Play button - launches the memory game
+    * Click to Play buttin has a hover effect on non touchscreen devices with a shadow transition appearing
 
 - - -
+>>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
+
 ### Game Section
 
 ![Game Section - Mock Up](docs/mockups/mockup_3_game.jpeg)
