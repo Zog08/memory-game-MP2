@@ -35,84 +35,110 @@ A web-based game that tests the users memory and invokes a theme of the popular 
 #### **Client Goals**
 The quiz was built as the second milestone project for my Diploma in Web Application Development with [Code Institute](https://codeinstitute.net/) as a learning tool for interactive frontend development and my first project using JavaScript and so didn't have a specific client.
 However in order to make the end product more professional and to help with create a clear scope for the project I treated it as a real-world application which could be used by a person wishing to play a game or as a fan of Stardew Valley. This client's goals would be:
->>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
 
-* Engaging users with interactivity and a fun application on their site
-* Allowing users to learn more about lesser-known destinations
-* Helping users to choose where to go
-* Helping users learn more about their travel personality
+* Engaging users with a fun game to test their memory
+* Engaging users who are fans of Stardew Valley 
+* Engaging users who have not yet heard of Stardew Valley and give them a taste of its themes and artwork, and maybe get them hooked.
+* Passing time or giving the client extra activities for their site in the theme of gaming or Stardew valley
 
 #### **User Goals**
-The audience for this quiz would be people who are looking to travel or go on holiday but are unsure where to go. They perhaps want to experience more exotic destinations or want to go somewhere off the beaten track and wish to find a destination that would suit their personality and tastes.
+The audience for this game would be people of any age who has either an interest in testing their memory in a fun way, or users who are or would like to become a fan of Stardew Valley. The game does not depend on any prior knowledge of Stardew Valley though, so anyone could use it.
 User Goals:
-* Learning more about themselves and their travel personality
-* Having fun doing a short quiz
-* Getting recommendations of where to go travelling or on holiday
-* Learning more about a lesser-known destination that suits their travel personality
+* To test their own memory skills and try to improve their score
+* Have some fun playing a game
+* Ability to engage where little or no prior Stardew Valley knowledge is required to play
+* To learn more about the artwork and characters from Stardew Valley and pique their interest.
 
 - - -
 ### Research
 
 #### **Market Review**
-I looked at a variety of online travel quizzes. Most were hosted by travel agencies or travel bloggers. I looked at the style and content of their questions and answers, how the results were presented, the design and style of the websites and how the quiz was structured. I also looked more broadly at personality tests. Some of the websites that I researched are below.
+I looked at a variety of online memory games, some from past Code Institute students and some found elsewhere on the internet. You can see some of the pages researched below:
 
-[Conde Nast Quiz](https://www.cntraveler.com/story/where-should-you-go-on-vacation-next) | [Jessie On A Journey](https://jessieonajourney.com/travel-personality-quiz/) | [Inspiring Travel](https://www.inspiringtravel.co.uk/other-shores/on-trend/holiday-destination-quiz/) | [British Airways](https://bahighlife.com/destinations/quiz-which-holiday-destination-is-right-for-you) | [Truity](https://www.truity.com/test/travel-personality-test) | [16 Personalities](https://www.16personalities.com)
+[Helpful Games Memory Game](https://www.helpfulgames.com/subjects/brain-training/memory.html) | [Improve Memory Card Game](https://www.improvememory.org/brain-games/memory-games/magic-cards/) | [Nintendo Characters Merry Matches Game](https://play.nintendo.com/activities/memory-match/holiday-merry-memory-match-game/) | [Disney Characters Wordwall Memory Game](https://wordwall.net/resource/3421059/princess-memory-game) | [Musical Instrument Memory Game](https://insidetheorchestra.org/outside-the-orchestra/musical-memory/) 
 
 #### **Key Takeaways from Market Review**
-* 10 questions is a good length to keep a user's interest
-* Most questions were about travel though some focused more on personality
-* Many of the quizzes featured simple animations on hover or click
-* Most of the quizzes didn't offer a back button to change an answer
+* Where I am only providing a single level of difficulty, it helps to play against a clock to imrove yourself
+* It was less enjoyable when the cards were not easily discernable from each other
+* Some quizzes used noises, music, and animations which did not improve the game but did add fun to the experience
+* Some quizzes were slow to turn the cards and this affected my enjoyability
+* Some websites were far too busy, with adverts and unusual placements taking away from the ability to play the game
 
 - - -
 ### User Stories
-Based on the research and goal development above I created a list of user stories. I felt that the quiz was most likely to be something that a visitor used once, rather than repeatedly, as it would likely form part of a bigger website e.g. a tour operator or travel agent site, with a user moving on to discover more about the products offered, so all user stories relate to a first time user.
+Based on the research and goal development above I created a list of user stories. I felt that the game was most likely to be something that a visitor came across once and perhaps played a few times in a row, rather than repeatedly, as it would likely form part of a bigger website e.g. a Stardew Valley or gaming fan site, with a user moving on to discover more about the products offered, so all user stories relate to a first time user.
 
-* I want to take part in a fun, online game to find out my travel personality and my ideal travel destination
-* I want to see information, images and a map of my recommended destination
-* I want to see a breakdown of my results to learn more about my personality
-* I want to access the quiz on any device
-* I want to navigate the site easily
+#### **User**
+1. I want to take part in a fun, online game
+2. I want to test my memory skills
+3. I want to improve my memory skills / brainpower / speed
+4. I want to enjoy the Stardew Valley theme
+5. I want to access the quiz on any device
+6. I want to navigate the site easily
+
+#### **Client**
+7. I want to entertain visitors to my site and keep them there for longer periods of time
+8. I want to educate the user on Stardew Valley Characters and artwork
+9. I want the user to enjoy visiting my site
+10. I want to capture new audiences and translate them into regular visitors
+11. I want the site to work correctly and efficiently
 
 - - -
 ### Content
-The quiz is made up of 10 questions each with 6 answer options to choose between. Each of the answers relates to a personality type.
-These are:
-* Culture-Vulture
-* Thrill-Seeker
-* Peace-Lover
-* People-Person
-* Foodie
-* Animal-Lover
+The game is made up of 6 pairs of character cards made popular by the original game Stardew Valley. 
+These characters are:
+* Emily
+* Abigail
+* Caroline
+* Krobus
+* Cat
+* Dog 
 
-Each time the user selects an answer it builds up a picture of what kind of personality they have. At the end of the quiz these results are presented to the user with a full breakdown of their personality in percentages. These results are also processed to calculate the best country recommendation for the user, I have included 6 countries, all of which are less visited or off the beaten track countries, to fit the client goals.
-These are:
-* New Zealand
-* Zambia
-* Kyrgyzstan
-* Peru
-* Mexico
-* China
+The artwork in the background, fonts and images are all taken from the official Stardew Valley game to show a cohesive branding.
 
-It is worth pointing out that whilst this is presented as a personality test there is no specific psychological research done in to the personality testing and it is purely for fun.
+#### **Overview of page content
+* When the game is started, the cards are shuffled face down.
+* The user clicks pairs of cards to find a matching pair.
+* If a matching pair is found the cards remain turned, if there is no match the cards are returned to face down.
+* There is a timer that starts when the user makes their first card choice.
+* You win the game by finding all the matches.
+* The amount of moves (cards turned over) is stored and if the users score is in the top five fewest moves, their name is added to the High Scores list.
 
 - - -
 ### Design, Layout & Structure
-
+>>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
 
 #### **Wireframes**
-I decided to create a fully designed site in Figma, developing the structure, skeleton and layout as well as the style and look of the site, making all major creative design decisions, including the colours, fonts & layout prior to beginning coding. I created designs for desktop, tablet and mobile to make sure that responsiveness was at the forefront of the application from the beginning.
+I decided to create a fully designed site in Balsamiq, developing the structure, skeleton and layout as well as the style and look of the site, making all major creative design decisions, including the colours, fonts & layout prior to beginning coding. I created a site that was very similar over mobile, tablet and desktop and made sure that responsiveness was at the forefront of the application from the beginning.
 
-<details><summary>Welcome</summary>
-<img src="docs/wireframes/wireframes_welcome.png">
+<details><summary>Start Page</summary>
+<img src="docs/wireframes/wireframe-index-desktop.png">
+<img src="docs/wireframes/wireframe-index-mobile.png">
 </details>
 
-<details><summary>Game</summary>
-<img src="docs/wireframes/wireframes_game.png">
+<details><summary>Start Page, How To Play</summary>
+<img src="docs/wireframes/wireframe-howtoplay-desktop.png">
+<img src="docs/wireframes/wireframe-howtoplay-mobile.png">
 </details>
 
-<details><summary>Results</summary>
-<img src="docs/wireframes/wireframes_results.png">
+<details><summary>Start Page, Click To Play</summary>
+<img src="docs/wireframes/wireframe-clicktoplay-desktop.png">
+<img src="docs/wireframes/wireframe-clicktoplay-mobile.png">
+</details>
+
+<details><summary>Game Page</summary>
+<img src="docs/wireframes/wireframe-game-desktop.png">
+<img src="docs/wireframes/wireframe-game-mobile.png">
+</details>
+
+<details><summary>End Page</summary>
+<img src="docs/wireframes/wireframe-end-desktop.png">
+<img src="docs/wireframes/wireframe-end-mobile.png">
+</details>
+
+<details><summary>404 Page</summary>
+<img src="docs/wireframes/wireframe-404-desktop.png">
+<img src="docs/wireframes/wireframe-404-mobile.png">
 </details>
    
 - - -
