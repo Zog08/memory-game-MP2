@@ -187,7 +187,6 @@ I downloaded the specialty font as a .woff file straight into the documents. The
 I had a fallback font of sans-serif standard font as I felt this was a good match with the 8-bit simplified nature of the design. 
 
 - - -
->>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
 ## Technologies Used
 
 ### Languages
@@ -247,19 +246,24 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 
 <details><summary>Screenshots</summary>
 
-<img src="docs/features/features_whole_favicon.jpeg">
+* **Tab icon for Chrome browsers**
+<img src="docs/features/features-tabicon-chrome.png">
+
+* **Tab icon for Safari browsers**
+
+<img src="docs/features/features-tabicon-safari.png">
 
 *Favicon*
 
 </details>
 
-* I included a Favicon for the site using the little plane graphic from the logo. This helped to build the brand and continue the site design in the user's browser tab.
+* I included a Favicon for the site using the 'Junimo' image from Stardew Valley. This helped to build the brand and continue the site design in the user's browser tab. It is also the same as the custom cursor hover over the playing cards.
 
 #### **Logo**
 
 <details><summary>Screenshots</summary>
 
-<img src="docs/features/features_whole_logo.jpeg">
+<img src="docs/features/features-logoheader.png">
 
 *Logo*
 
@@ -267,31 +271,11 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 
 * A simple logo with the name of the game
 * The logo appears on all pages
-* The logo is responsive and changes sized based on the user's screen size
-* The logo isn't clickable. I had originally made it go back to the home page but during testing and based on feedback from my mentor I discovered this could cause a user to accidentally reset the quiz back to the start. This would cause a negative emotional response from a user so I broke the convention of having the logo link to the home page in this case as I felt it provided the best user experience.
-
-
-#### **Footer**
-
-<details><summary>Screenshots</summary>
-
-<img src="docs/features/features_whole_footer_dt.jpeg">
-
-*Footer on desktop / tablet*
-
-<img src="docs/features/features_whole_footer_mb.jpeg">
-
-*Footer on mobile*
-
-</details>
-
-* The footer is made of a series of layered 'paper-like' clouds to give a feeling of being above the clouds in a plane.
-* The footer contains the text "Made By Emma Hewson" and links to my relevant social media sites so that it can be used as a portfolio project
-* The footer social icons have aria labels to make them accessible
-* The footer social icons have a hover effect with a smooth colour transition
-* The footer is responsive, the cloud image adjusts as a background image down to tablet-size screens and is replaced by a smaller image on mobile to make the design work and the site perform well.
+* The logo is clickable. The 404 page had an alert on WAVE accessibility because of this, because it is a neighbour to the same link destination, namely the 'Go Home' button. I decided to ignore this warning as the 404 page is seldom visited and doesn't affect enjoyment of the game, and because I think it would be confusing to get back to the index page without the link in the logo if it broke from the way the logo worked on all other pages.
 
 - - -
+>>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
+
 ### Welcome Section
 
 ![Welcome Section - Mock Up](docs/mockups/mockup_2_welcome.jpeg)
