@@ -299,255 +299,72 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 * Easy to find and use accordions with rules and play within each one.
 * When one accordion is in use, the other collapses back
 * Click to Play button - launches the memory game
-    * Click to Play buttin has a hover effect on non touchscreen devices with a shadow transition appearing
+    * Click to Play button has a hover effect on non touchscreen devices with a shadow transition appearing
 
 - - -
->>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
 
 ### Game Section
 
-![Game Section - Mock Up](docs/mockups/mockup_3_game.jpeg)
-
-<details><summary>Screenshot</summary>
-
-<img src="docs/features/features_game_layout_dt.jpeg">
-<img src="docs/features/features_game_layout_tb.jpeg">
-<img src="docs/features/features_game_layout_mb.jpeg">
-
-*Game Section*
-
-</details>
-
-* The game section is fully responsive with the answers stacking full width on smaller devices and in 2 columns on larger devices as well as other layout changes
-
-
-#### **Progress Bar**
+![Game Section - Mock Up](docs/mockups/mockup-game.png)
 
 <details><summary>Screenshots</summary>
 
-<img src="docs/features/features_game_progress.gif">
+<img src="docs/features/features-gamearea-start.png">
 
-*Progress Bar updates with each question answered*
+*Game page at load*
+
+<img src="docs/features/features-gamearea-inplay.png">
+
+*Game page in play*
 
 </details>
 
-* Gives the user an indication of where they are in the quiz and how many questions are left
-* Contains both a visual reference in the pink bar and a number reference in the question number
-* Updates when a user selects an answer and the question is repopulated
+* The game section is centred in the screen on all devices in order to keep the simplistic design at the core of the page
+* The cards are sorted in 3 columns with 4 rows of cards in each
+* The cards are shuffled on page load
+* There is a moves counter about the game area that counts amount of times a card is turned over
+* There is a timer that starts on the first card click
+* Custom cursor of 'Junimo' image when hovering over the cards on desktop. This reflects the icon on the browser tab.
+* When clicked, the cards have an 2 animations: they shrink back slightly, before visually turning 180 degrees
+* You can click the logo header to return back to the main screen. This is well out of the way so the user is unlikely to accidentally click this mid-game.
 
 
-#### **Questions & Answers**
+### **End Results Page**
+
+![End Results Page - Mockup](docs/mockups/mockup-endgame.png)
 
 <details><summary>Screenshots</summary>
 
-<img src="docs/features/features_game_answerselect.gif">
+<img src="docs/features/features-endpage.png">
 
-*Answer selection & question/answer update*
+*End Results Page, after playing, upon load*
 
-<img src="docs/features/features_game_answerhover.gif">
+<img src="docs/features/features-endpage-entername.png">
 
-*Answer hover effect*
+*End Page form with name typed in*
 
-
-</details>
-
-* Updates with the next question and a set of answers each time the user makes a selection
-* Has a darker blue hover effect on the answers on non touchscreen devices with a smooth transition
-* Once the user has selected an answer it turns orange
-* There is a brief timeout to allow the orange to appear before the question & answers update, this gives the user a sense that the answer has definitely been selected and submitted and gives them time to see the question update happenning - all part of creating an intuitive and positive user experience.
-* This also avoids having a separate 'next question' button which would add more clicks and may annoy a user
-* During the time out the user cannot select another answer - this avoids accidental selections or duplicate results
-
-
-#### **Restart Quiz Button**
-
-<details><summary>Screenshots</summary>
-
-<img src="docs/features/features_game_restartbutton.gif">
-
-*Restart Quiz Button*
+<img src="docs/features/features-endpage-hiscores.png">
 
 </details>
 
-* A button to allow the user to go back to the start of the quiz
-* Has a hover effect with a short, smooth colour transition on non touchscreen devices
-* I chose to make this button grey, rather than orange like the other navigation buttons because I didn't want it to draw the user's attention away from the game too much, it doesn't form part of the game and I didn't want the user to mistakenly click on it thinking it was a 'submit answer' button or similar.
-
-- - -
-### Tie Breaker
-
-![Tie Breaker - Mock Up](docs/mockups/mockup_4_tie.jpeg)
-
-<details><summary>Screenshots</summary>
-
-<img src="docs/features/features_game_tiebreak_5_dt.jpeg">
-<img src="docs/features/features_game_tiebreak_5_tb.jpeg">
-<img src="docs/features/features_game_tiebreak_5_mb.jpeg">
-
-*Tie Breaker*
-
-<img src="docs/features/features_game_tiebreak_4.jpeg">
-<img src="docs/features/features_game_tiebreak_3.jpeg">
-<img src="docs/features/features_game_tiebreak_2.jpeg">
-
-*Tie Breaker - Number of photos varies depending on how many personality-type scores are tied*
-
-<img src="docs/features/features_game_tiebreak_hover.gif">
-
-*Tie Break Image Hover*
-
-</details>
-
-As there are only 10 questions and each ones selects one of 6 personality types, there was a high chance of a tied result. I wanted to find a way to make the results as accurate and personalised as possible, so, where a tie happens, this round puts the final result decision in to the hands of the user, using images to find out what their perfect trip would look like. This helps it stand apart from the other questions and highlights its importance to the user.
-
-* Images appear which relate to the tied winning personality results, each image representing a personality e.g. "foodie", "culture-vulture" etc.
-* User selects one of them, this becomes the winning personality
-* This round only appears if there is a tied result
-* This round is also taken in to account in the final personality statistics
-* There can be anything from 2-5 images depending on how many results were tied
-* The images have associated "alt" values to make them accessible
-* The layout is fully responsive depending on the screen size and the number of images that appear
-
-- - -
-### Results Section
-
-![Results Section - Mock Up](docs/mockups/mockup_5_results.jpeg)
-
-
-#### **Personality Type**
-
-<details><summary>Screenshots</summary>
-
-<img src="docs/features/features_results_personality_dt.jpeg">
-<img src="docs/features/features_results_personality_mb.jpeg">
-
-*Personality Type Box*
-
-<img src="docs/features/features_results_personality_pieclick.gif">
-
-*Clickable pie chart*
-
-<img src="docs/features/features_results_personality_parathree.jpeg">
-
-*Content of paragraph 3 varies depending on results - this one shows a different example to to other screen shots, where both the 2nd and 3rd place have scored over 15%*
-
-
-</details>
-
-* This section gives detailed information about the user's personality results
-* It is personalised to the user with their name
-* The pie chart has a colour key with each personality type having an associated colour
-* Each answer selected by the user is associated with one of the personality types, the percentages are calculated based on these, including the tie break
-* The pie chart animates on and has clickable sections to see the percentages for each
-    * If the pie chart fails to load the user is presented with a friendly error message in the place of the pie chart to improve user experience - see bugs in [TESTING.md](TESTING.md)
-* Includes text information about the personality type
-* The final paragraph is bespoke to the user's results, if they have high % scores in the 2nd and 3rd place personalities these are included here.
-    * The recommended country is based on all the personality types chosen, not just the winning one - this helps explain this to the user.
-    * This gives a sense of results being truly personalised to the user
-* The personality results are fully responsive, stacking on smaller screens
-
-
-#### **Recommended Country**
-
-<details><summary>Screenshots</summary>
-
-<img src="docs/features/features_results_country_tb.jpeg">
-<img src="docs/features/features_results_country_mb.jpeg">
-
-*Country Recommendation*
-
-
-</details>
-
-The recommended country is calculated using all the answers given by the user. This adds more accuracy to the results, taking in to account various different aspects of their personality, rather than just associating a single country with a personality type.
-
-It is calculated as follows:
-* Each answer relates to a personality type
-* Each time the user selects an answer, points are awarded to 3 countries, based on how relevant the personality type is to the destination
-    * e.g. if the 'food' answer is selected Mexico gets 3 points, New Zealand gets 2 and Peru gets 1
-* These are added up at the end and a winning country is selected
-
-The country recommendation section contains
-* The name of the country selected
-* A hero image of the country (including an "alt" value to make this accessible)
-* Text about the country
-
-
-
-#### **Country Highlights**
-
-<details><summary>Screenshots</summary>
-
-<img src="docs/features/features_results_country_highlights.jpeg">
-<img src="docs/features/features_results_country_highlights2.jpeg">
-<img src="docs/features/features_results_country_highlights3.jpeg">
-
-*Country Highlights Section*
-
-<img src="docs/features/features_results_highlights_click.gif">
-
-*Clickable marker with page scroll*
-
-<img src="docs/features/features_results_map_functionality.gif">
-
-*Google Maps Built in Functionality*
-
-<img src="docs/features/features_results_responsivemap1.jpeg">
-<img src="docs/features/features_results_responsivemap2.jpeg">
-
-*Responsive map zoom*
-
-
-</details>
-
-* A map which shows the recommended country using Google Maps API with clickable markers to find out more information about key highlights in that destination
-* The highlight information is hidden until the user clicks on a marker
-* Each marker is located at the site of a tourist attraction
-* Each time a user clicks on a marker it replaces the information, this keeps the page short and neat and creates a better user experience as well as adding interactivity
-* There is explanatory text at the top telling the user to click on a marker, though the markers in themselves encourage users to click on them due to the popularity of Google Maps and people's knowledge of it
-* When a marker is clicked text and images appear about that destination highlight
-* The highlight images have associated "alt" values to make them accessible
-* The page scrolls down when a marker is clicked, this varies depending on screen size - on a large device it scrolls to the bottom of the highlights div, this makes sure that the user can see the whole highlight text and photos on screen at the same time, on a smaller device, where this isn't possible, it scrolls to the top of the highlight text.
-* This section is fully responsive, as well as layout changes to the main div and photos the map zoom level also changes for different devices to allow the whole country to appear on the user's screen and all markers to be visible and not too close together.
-* If something goes wrong and the map fails to load Google has a built in error message to handle the problem in a user-friendly way
-* The map also has Google's in-built functionality including:
-    * Zoom buttons
-    * Touchscreen zoom and scroll
-    * Satellite and map view options
-    * Streetview
-    * Full screen button
-
-
-#### **Start Again Button**
-
-<details><summary>Screenshots</summary>
-
-<img src="docs/features/features_results_startagaintext.jpeg">
-<img src="docs/features/features_results_startagain.gif">
-
-*Start Again Button*
-
-</details>
-
-* A button to allow users to re-take the quiz
-* Allows users to navigate the site easily and start again if they're not happy with their results
-* Has explanatory text to give the site a friendly 'voice'
-* Button has a hover effect with a short, smooth colour transition on non touchscreen devices
+* As soon as the game is won, the user is directed to the end page automatically
+* The most recent score is saved to local storage
+* The most recent score is shown at the top of the form box
+* The user can enter their name in the form and press the Save button
+* If the score is in the top 5 scores (decided and sorted by fewest moves), the players entered name and score is shown on the hiScore list
+* There are 2 more buttons at the base of the form box; one to play the game again (Play Again) and one for returning back to the index welcome page (Go Home)
+* All the buttons have a hover animation; when the mouse is hovered over the buttons they transition with a shadow to give a 3d layered effect
 
 - - -
 ### 404 Page
 
-![404 Page - Mock Up](docs/mockups/mockup_6_404.jpeg)
+![404 Page - Mock Up](docs/mockups/mockup-404.png)
 
 <details><summary>Screenshots</summary>
 
-<img src="docs/features/features_404.jpeg">
+<img src="docs/features/features-404.png">
 
 *404 Page*
-
-<img src="docs/features/features_404_gohome.gif">
-
-*Go Home Button*
 
 </details>
 
@@ -556,18 +373,31 @@ The country recommendation section contains
 * The page has the same design as the rest of the site, so the users don't feel like they have left the site, encouraging them to return to the home page
 * The text is light hearted and relevant to the theme of the quiz
 * There is a button to take the user back to the home page so there is no need to user the browser back button
+* The logo also has a link to return to the home page, as is consistent with the rest of the website on all pages
 
 - - -
 ### Future Features
 I would like to expand the site in the future with the following features
 
-#### **User Account**
-Give the user the ability to save their results and recommendations, creating an account and log in so that they can re-access their data.
+#### **A way to lose the game**
+Give the user the ability to lose when playing the game. Suggestions would be for time to run out, or to complete in an allocated amount of moves.
 
-#### **Multiple / More Detailed Recommendations**
-Give the user more detailed country recommendations, with multiple options and more countries available. This would be a good way to address the bug that I have talked about in the [TESTING document](#TESTING.md) where, when 2 countries have an equal number of points, the country that occurs first in the countries array is automatically selected. It would be a nice idea in this situation to give the user multiple options to choose between or compare.
+#### **Multiple levels**
+Give the user the ability to choose a level with amount of cards chosen at start. Or the levels to get progressively harder as you complete each level
+
+#### **Change the cards on each game**
+Have the cards within the game board to be chosen from a pool of cards so that you get a different choice of pairs each time
+
+#### **Global scoreboard**
+Have the ability to save the hiscores to a global hiscore board rather than just local storage
+
+#### **A scoreboard with timer**
+Take the time taken into account and display. Where the Moves score is the same, sort the scores by lowest time
 
 - - -
+
+>>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
+
 ## JavaScript Functionality
 
 This section explains in plain English what happens in the JavaScript code as the user moves through the game. This is in addition to the comments in the JavaScript Code.
