@@ -9,6 +9,7 @@
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     background-color: #046aca;
     background-image: url("images/svbackground.webp");
     background-repeat: no-repeat;
@@ -211,4 +212,47 @@ input {
 #high-scores-list {
     list-style: none;
     padding-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top:auto;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: rgba(40, 40, 40, 0.5);
+}
+
+.footer-text {
+    font-family: "stardew", sans-serif;
+    color: white;
+    text-shadow: rgb(67, 66, 66) 1px 0 10px;
+    font-size: 30px;
+}
+
+.social-link:hover {
+    cursor: pointer;
+}
+
+.social-icon:active {
+    transform: scale(1.1);
+}
+
+.social-icon:hover {
+    color: #3ed149;
+    text-shadow: 0px 0px 10px #3b3b3b;
+}
+
+.social-icon {
+    font-size: 20px;
+    margin: .2em .8em;
+    color: white;
+    text-shadow: 0px 0px 10px #3b3b3b;
+}
+
+.educational {
+    font-family: sans-serif;
+    color: white;
+    font-size: 13px;
+    padding-top: 5px;
 }
