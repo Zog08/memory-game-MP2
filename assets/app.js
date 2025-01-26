@@ -91,7 +91,7 @@ function stopTimer() {
     clearInterval(interval);
 }
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+cards.forEach(card => card.addEventListener('click', flipCard));    // card flips on mouse click
 
 // Assigned constants for game over
 const finalScore = document.getElementById("final-score");
@@ -100,7 +100,6 @@ const saveScoreBtn = document.getElementById("save-score-btn");
 const mostRecentScore = localStorage.getItem('mostRecentScore'); //get most recent score from local storage saved at endgame()
 const highScoresList = document.getElementById("high-scores-list");
 const highScores = JSON.parse(localStorage.getItem("highScores")) || []; // get high scores array from storage, parse items || of for first time it initialises an empty array
-// const MAX_HIGH_SCORES = 5;
 
 function redirect() {
     window.open("end.html", "_self"); // redirects you to end page to store score
@@ -108,9 +107,9 @@ function redirect() {
 
 function endGame() {
     setTimeout(()=> {
-        stopTimer();
-        localStorage.setItem('mostRecentScore', moves);
-        redirect();
+        stopTimer();                // invoke stopTimer function to stop the time
+        localStorage.setItem('mostRecentScore', moves);     // save score to local storage
+        redirect();                 // redirect to end game
     }, 300);
 }
 

@@ -402,260 +402,197 @@ Take the time taken into account and display. Where the Moves score is the same,
 
 This section explains in plain English what happens in the JavaScript code as the user moves through the game. This is in addition to the comments in the JavaScript Code.
 
-### Welcome Section
+### Welcome Page Section
 
 <details><summary>Details</summary>
 
-* The user enters their name and clicks on 'Start Quiz':
-    * If no name is entered an alert appears prompting the user to enter a name
-    * The name is stored to be used in the results page
+* The user is faced with a welcome page, including logo and graphics that are instantly recognisable
+* The two accordion sections stay active until the other accordion is clicked and brought to focus
+    * If the user would like to read the rules, click the button reading 'How to Play'
+        * A drop down accordion box appears with the text of the rules.
+    * If the user would like to play, click the button reading 'Play Game'
+        * The button directs the user to the Game page
     
-* The start game button starts the main JavaScript function which contains all the game functionality
+    ```
+    accordion.forEach(function (ele) {              
+        ele.addEventListener('click', toggleEle);
+    });
+
+    function toggleEle(e) {
+        accordion.forEach(function(ele) {
+            ele.classList.remove('active');
+        });
+        this.classList.toggle('active');
+    }
+    ``` 
+        
 </details>
 
-### Game Section
+### Game Page Section
 
 <details><summary>Details</summary>
 
-* The start game button:
-    * hides the welcome section and reveals the game section
-    * populates the question & answers from the first question in the questions array (in a separate .js file)
+* When the page loads, the cards within the html code are shuffled in the 12 place grid system:
+
     ```
-    const questions = [{
-        questionNumber: 1,
-        questionText: "At a party you are most likely to be found…",
-        answers: [{
-                answerNumber: 1,
-                answerText: "Leafing through the host's book collection",
-                answerType: "culture"
-            },
-            {
-                answerNumber: 2,
-                answerText: "Jumping off the roof in to the pool",
-                answerType: "thrill"
-            },
-
-    // questions array continues
+    function shuffle() {                   
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos;
+    }
     ```
-    * sets the progress bar based on the question number of the first question in the questions array
 
+* When the user clicks the first card,
+    * The first card is flipped
+    * The timer is started
+    * The move counter increases by 1 (and with every subsequent time an unflipped card is clicked)
+* If the first card is clicked twice, nothing happens, a function is invoked to stop that first card being considered as the second click
+* The class of 'flip' is added to the first flipped card and the move increases by 1
+* when the second new card has been flipped, it is checked for a match
 
-* When the user selects an answer:
-    * All other answers are disabled so the user cannot select more than once
-    * The answer is given a class of 'selected' to change its colour
-    * Each answer has an associated 'personality type' - this is logged to an array called 'personality tally', for each answer selected another 'personality type' is added to the array, one for each question.
     ```
-    // user selects "thrill-seeker" answer
+    function startTimer () {
+        interval = setInterval(() => {
+            time.innerHTML = minutes + "mins " + seconds + "secs";
+            seconds++;
+            if (seconds == 60) {
+                minutes++;
+                seconds = 0;
+            }
+        }, 1000);
+    }
+    
+    function flipCard() {
+        if (lockBoard) return;
+        if (this === firstCard) return;     
+        this.classList.add('flip'); 
+        moveCounter();
 
-    personalityTally = ["thrill"]
-    ```
-    * There is a brief timeout before the question reloads (see [Answers](#answers) in features section for more information)
-    * The 'selected' class is removed from the selected answer to remove the colour styling
-    * The first question in the questions array is removed from the array
-    * The game is populated with the question and answers from the new first question in the questions array
-    * The buttons are re-enabled
-    * The progress bar is moved on based on the question number of the first question in the questions array
-    * The page scrolls back to the top
-    * This repeats until there are no questions left in the questions array
+    if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+    }
+        secondCard = this;
+        checkForMatch();
+    }
 
-* When the user selects the final answer:
-    * Calculating the winning personality:
-        * The personality tally contains the 10 personality types that come from the selected answers
-        ``` 
-        personalityTally = ["thrill", "food", "culture", "thrill", "thrill", "people", "remote", "food", "food", "culture"]
-        ```
-        * The code checks for the type that occurs the most frequently
-            * It does this by: 
-                * creating a new array of the number of times each personality occurs, the 'personality score' (order matches the personalities array)
-                ```
-                scoreArray = [2, 3, 1, 1, 3, 0]
-                ```
-                * finding the max value in this array
-                ```
-                let maxPersonalityScore = Math.max(...scoreArray);
-
-                maxPersonalityScore = 3
-                ```
-                * then creating a new array of only personalities that scored that amount.
-                * It can then test to see how many personalities are in that array and therefore whether there is a tie.
-                ```
-                // both "food" and "thrill" scored 3 - there is a tie
-
-                topPersonalityArray = ["food", "thrill"]
-                ```
-
-        * If there is a single winner the personality result is stored and the results show (see below)
-        * If there is a tie:
-            * The tie breaker question is revealed and the main quiz hidden
-            * The tie breaker contains photos which relate to the tied winning personalities only (not the others)
-            * The user selects a single image to break the tie - this is now the winning personality
-            * This personality is logged and the results show
-            ```
-            // user selects the image associated with the "thrill-seeker" personality
-
-            personalityTally = ["thrill", "food", "culture", "thrill", "thrill", "people", "remote", "food", "food", "culture", "thrill"]
-
-            // "thrill-seeker" is the winning personality
-            ```
-    * Calculating the recommended country:
-        * This is more complex than having a single country associated with a personality type as I wanted the recommendations to be more personalised and less simplistic. It is based on all the user's answers which give points to certain countries based on the personality type.
-        * Takes the 'personality tally' array (based on the user's answers)
-            * For each personality type in the array it assigns points to different countries based on how much that country would appeal to someone who likes food, culture, thrill-seeking etc.
-            * e.g. if a 'food' answer is selected Mexico is awarded 3 points, New Zealand 2 & Peru 1
-            * This system of awarding multiple countries points also helps to avoid tied results
-            * This is done using arrays of points where the index matches the index of the country in the countries array (stored in a separate js file)
-            ```
-            // [New Zealand, Mexico, Peru, China, Zambia, Kyrgyzstan] - order of countries in the countries array
-
-            let userTotal = [0, 0, 0, 0, 0, 0];
-            let wildlifePoints = [0, 1, 0, 0, 3, 2];
-            let thrillPoints = [3, 0, 1, 0, 2, 0];
-            let culturePoints = [0, 0, 3, 2, 0, 1];
-            let foodPoints = [2, 3, 0, 1, 0, 0];
-            let peoplePoints = [1, 2, 0, 3, 0, 0];
-            let remotePoints = [0, 0, 2, 0, 1, 3];
-            ```
-            * These point are added to the userTotal array (see code above)
-            * The winning country is the one with the most points (matched using the index in the array)
-            ```
-            // user points after all points added (based on example personality tally above)
-
-            userTotal = [19, 11, 12, 16, 9, 5]
-            
-            // New Zealand is the winning country (index 0 in the countries array)
-            ```
-    * The game div is hidden and the results div appears
-
-### Game Section - Restart Quiz Button
-* When the user clicks on the Restart Quiz button the page reloads, which:
-    * hides the game section
-    * reveals the welcome section
-    * clears all results so far
-</details>
-
-### Results Section - Personality
-
-<details><summary>Details</summary>
-
-* The personality results are populated based on the winning personality
-    * The user name is included in the heading to personalise the results
-    * The personalities array contains all the associated text, colours and details which are used to populate the personality results
-    ```
-    let personalities = [{
-        type: "culture",
-        score: 0,
-        prefix: "a",
-        name: "Culture-Vulture",
-        text: [
-            "Knowledge is power could be your motto! You love to learn about the world around you and what better way to do that than to travel! You may well be knowledgable about art, literature, music or history. You and often seek out opportunities to explore and learn more about different forms of culture.",
-            "You love gathering information and facts. You are at your happiest in galleries, museums and ancient ruins or learning a new language and using it to connect with local people on your travels. You are open to new cultural experiences and love to discover and learn."
-        ],
-        color: "purple",
-        colorCode: "#ACAAFF"
-    },
-
-    // personalties array continues...
-    ```
-* The pie chart and percentages are populated:
-    * The personality scores (calculated and added to the personalities array earlier) are compared and sorted and the array sorted in to order based on the scores
-    ```
-    function compareScores(a, b) {
-            return a.score - b.score
-        };
-    let sortedPersonalities = personalities.sort(compareScores);
-    ```
-    * This is then reversed to put the highest scoring personality first
-    ```
-    let reverseSortedPersonalities = sortedPersonalities.reverse();
-    ```
-    * The percentages are calculated based on the number of questions answered (10 for a clear winner, 11 for a tie)
-    * Due to rounding issues if the number doesn't add up to 100 the top score is increased so that they do
-    * These results then populate the pie chart and key
-        * The colours for the key & pie chart are assigned by pulling the associated colour from the personalities array
-        * This means that the same colours are always used for the same personalities
-    * The pie chart animates on - animation by chart.js
-    * The pie chart sections have a hover effect on them, when you hover over them you see the personality type and the percentage - hover functionality from chart.js
-    * During testing I discovered that chart.js is not supported by older Safari versions on IOS (12 and earlier) - in this situation a try / catch statement is used to replace the failed pie chart with a `<p>` element telling the user their browser doesn't support the pie chart.
-        ```
-        try {
-            buildPie(percentageArray, keyColors, pieLabels);
-        } catch (err) {
-            pieDiv.classList.add("error-background");
-            pieDiv.innerHTML = "<p class='text-centre'>Sorry!<br>Your browser version doesn't support our pie charts.</p>";
+    function moveCounter() { 
+        moves++;
+        counter.innerHTML = moves;
+        if (moves == 1) {
+        startTimer();
         }
-        ```
-* The final paragraph of text is personalised based on the 2nd and 3rd place scores (if over 15%) to explain to the user how the country recommendation is based on all the aspects of their personality, rather than just on the winning personality type.
+    }
+
+    ```
+
+* The function checkForMatch checks to see if the cards flipped match each other
+    * If the cards match, the cards stay flipped to bottom face up and they are disabled on the board
+    * If the cards don't match, the class of list is removed from the chosen cards and the cards are reset to face down
+    * The non-matching cards are shown for 1.5 seconds before they return to face down and reset
+
+    ```
+    function checkForMatch() {
+    let isMatch = firstCard.dataset.pic === secondCard.dataset.pic; 
+       isMatch ? disableCards() : unflipCards();      
+    }
+
+    function disableCards() {
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+        pairs++;
+        if (pairs == 6) endGame();
+        resetBoard();
+    }
+
+    function unflipCards() {
+        lockBoard = true;
+        setTimeout(() => {
+            firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
+            resetBoard();
+        }, 1500);
+    }
+    ```
+
+* If all the pairs have been found, (6 pairs), then endGame function is invoked
+    * The game is ended
+    * The most recent score is saved to local storage
+    * After less than a second (to allow for showing the last pair reveal), the user is redirected to the End page
+
+```
+    function endGame() {
+        setTimeout(()=> {
+            stopTimer();
+            localStorage.setItem('mostRecentScore', moves);
+            redirect();
+        }, 300);
+}
+```
+
 </details>
 
-### Results Section - Country
+### End Hiscores Page Section
+
 <details><summary>Details</summary>
 
-* The recommended country results are populated based on the winning country
-    * This is based on the index of the winning country (see above)
-    * All the data is stored in the countries array including text, photos, map information, highlights data etc
-    * The country image and highlights images are also assigned an associated 'alt' value to make them accessible (stored in the countries array)
-    ```
-    const countries = [{
-        name: "New Zealand",
-        image: "nz_main.jpg",
-        alt: "Mt Cook and Lake Tekapo, New Zealand",
-        text: [
-            "New Zealand is a breathtakingly beautiful country that offers a unique blend of stunning landscapes, diverse wildlife, and rich cultural heritage. From the majestic peaks of the Southern Alps to the pristine beaches of the Bay of Islands, visitors will be mesmerized by the natural beauty that surrounds them.",
-            "Whether you prefer outdoor adventures, such as hiking, skiing, and surfing, or more relaxed pursuits, such as wine tasting and visiting art galleries, New Zealand has something for everyone. With friendly locals, delicious cuisine, and an abundance of activities, you'll leave with unforgettable memories of your time in this truly magical country."
-        ],
-        zoomLrg: 4.9,
-        zoomSml: 4.5,
-        center: {
-            lat: -40.51148,
-            lng: 172.67
-        },
-        highlights: [{
-                title: "Queenstown, Otago",
-                lat: "-45.0295903775837",
-                lng: "168.658942058923",
-                description: "Snuggled between the shores of shimmering Lake Wakatipu and the snowy peaks of the Remarkables, Queenstown is New Zealand's adventure capital and one of the country's top destinations for international visitors. Bungee jumping, jet boating, white water rafting, paragliding, rock climbing, mountain biking, and downhill skiing are just some of the adrenaline-fueled things to do here, and visitors can explore the stunning alpine scenery on the excellent network of hiking trails.",
-                images: [
-                    {
-                        img: "nz_queenstown1.jpeg",
-                        alt: "Bungee jumper leaps off platform"
-                    },
-                    {
-                        img: "nz_queenstown2.jpeg",
-                        alt: "Aerial view of Queenstown"
-                    },
-                    {
-                        img: "nz_queenstown3.jpeg",
-                        alt: "Queenstown lakefront"
-                    },
-                    {
-                        img: "nz_queenstown4.jpeg",
-                        alt: "Jetboat on turquoise river"
-                    }
-                ]
-            },
+* When the user is redirected to the End page, they are faced with a rewritten text box with the hiscore, retrieved from local storage
+    * If the user does not type anything in the test box, the save name button is disabled
 
-            // countries array continues
     ```
-* The map uses Google Maps API to create a personalised map showing the winning country - the code for this is stored in a separate file (map.js)
-    * The initMap function is passed the index of the winning country
-    * Longitude and Latitude taken from the countries array
-    * Zoom level taken from the countries array - responsive based on screen size (zoom level changes for smaller screens)
-    * The map contains clickable markers
-        * Each marker is clickable and reveals text and photos about a tourist attraction at that location
-        * The highlight images are also assigned an associated 'alt' value to make them accessible (stored in the countries array)
-        * When a user clicks on a marker the page scrolls down to reveal the highlight info - where it scrolls to varies based on screen size for the best user experience.
-        * If a user clicks on another marker the highlight text and photos are replaced
-    * If the map fails to load text is displayed in the map box which handles the error smoothly for the user (built in functionality from Google Maps API)
-    * The map also contains all the standard Google Maps functionality such as zoom, satellite view, street view and full screen
+        finalScore.innerText = mostRecentScore;
+        username.addEventListener("keyup", () => {
+            saveScoreBtn.disabled = !username.value; 
+        });
+    ```
+
+* Only when the name is entered and Save button is pressed by the user, the high score and name is saved to the local storage
+* The users most recent score is pushed to the high score array stored.
+* The array of previous stored scores are sorted ascending, low to high
+* The top 5 highest scores are taken
+* The new list of top 5 scores are saved to local storage
+* The scores are converted into a string
+* When the save button is clicked, the page is reloaded and shows the new list or hiscores on the page in a list
+
+    ```
+        saveHighScore = e => {              
+            e.preventDefault();
+
+        const score = {
+            name: username.value,
+            score: mostRecentScore
+        };
+
+        highScores.push(score);
+        highScores.sort( (a,b) => a.score - b.score);      
+        highScores.splice(5);                               
+        localStorage.setItem("highScores", JSON.stringify(highScores)); 
+        window.location.reload();
+            };
+
+highScoresList.innerHTML = highScores               
+        .map(score => {
+            return `<li class="high-score">${score.name} - ${score.score}</li>`;
+        })
+    .join("");
+
+
+* After the game has ended, the user can decide whether:
+    * To play again by pressing 'Play Again' button
+    * Go back to the Welcome page by pressing 'Go Home' button
+
+
 </details>
 
-### Results Section - Start Again Button
+### 404 Page Section
+
 <details><summary>Details</summary>
 
-* When the user clicks on the Start Again button the page reloads, which:
-    * hides the game section
-    * reveals the welcome section
-    * clears all results so far
+* If the user somehow clicks on a link that is broken etc they will end up on the themed 404 page
+* The text shows that something has gone wrong with an 'Oops' message
+* The same buttons appear to direct the user back to the home Welcome page
+
 </details>
 
 - - -
@@ -674,7 +611,7 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 4. Click 'Save'
 5. A live link will be displayed when published successfully. 
 
-The live link can be found here - [https://emmahewson.github.io/mp2_travel_quiz/](https://emmahewson.github.io/mp2_travel_quiz/)
+The live link can be found here - [https://https://zog08.github.io/memory-game-MP2/](https://https://zog08.github.io/memory-game-MP2/)
 
 ### Forking the GitHub Repository
 
@@ -700,158 +637,43 @@ The project will now be cloned locally for you to use.
 ### Code
 
 * Small code snippets & methods taken from online searches. All relevant code is credited in JavaScript files.
-* [Chart.js](https://www.chartjs.org/): ChartJS library used to create pie chart
-* [Google Maps API](https://developers.google.com/maps): Connected to Google Maps API for the map and clickable markers
+    * [Laurence Svekis, Udemy](https://www.udemy.com/share/101XdM/): Tutorial on creating JS accordions helped with this code
+    * [CogniVis AI youtube channel](https://youtu.be/-5V0rUxJUbY?feature=shared): Tutorial for learning base of timer and moves counter
+* Larger, more general tutorials for required code:
+    * [CodeSketchLab youtube playlist](https://youtu.be/eMhiMsEC9Uk?si=vu4F7Uf1qoIUBhz6): Memory game tutorial, helped with datasets, grid layout and shuffle, general tips for memory game success
+    * [DCode on Youtube](https://youtu.be/bznJPt4t_4s?si=9jmvQqTX3g11ed5F): Memory game tutorial, learning for datasets and general memory game tips and ideas
 
-- - -
-### Text Content
-
-* [Planet Aware](https://www.planetware.com/tourist-attractions/new-zealand-nz.htm): New Zealand Text
-* [Lonely Planet](https://www.lonelyplanet.com/articles/best-places-to-visit-in-mexico): Mexico Text
-* [Planet Aware](https://www.planetware.com/tourist-attractions/peru-per.htm): Peru Text
-* [Planet Aware](https://www.planetware.com/tourist-attractions/china-chn.htm): China Text
-* [Secret Africa](https://secretafrica.com/top-10-tourist-attractions-in-zambia/): Zambia Text
-* [Wild Frontiers Travel](https://www.wildfrontierstravel.com/en_GB/blog/places-to-visit-in-kyrgyzstan): Kyrgyzstan Text
 
 - - -
 ### Media
 
-* Background Cloud Image [Image by rawpixel.com on Freepik](https://www.freepik.com/free-vector/cloud-background-pastel-paper-cut-style-vector_18220838.htm#&position=8&from_view=collections)
+* Background Image [Stardew Valley by Concerned Ape on Pinterest](https://i.pinimg.com/originals/95/26/f0/9526f08c1e26dcb4f6b9afd9d76af8ab.png)
+
+* Logo Image [Stardew Valley by Concerned Ape on Official Stardew Valley webpage](https://www.stardewvalley.net/)
+
+* Character Images [Stardew Valley by Concerned Ape on Stardew Valley wiki page](https://stardewvalleywiki.com/Villagers)
+
+* Back of Card Image [Stardew Valley by Concerned Ape on Stardew Valley wiki page](https://stardewvalleywiki.com/mediawiki/images/7/72/Achievement_Local_Legend.jpg)
+
+* Favicon, 404, cursor Images [Stardew Valley by Concerned Ape on Stardew Valley wiki page](https://stardewvalleywiki.com/Stardew_Valley_Wiki)
 
 
-#### **Photos**
+### **Font**
 
-**New Zealand**
-* New Zealand Main [Casey Horner](https://unsplash.com/photos/O_wC7v1Jh8A)
-* Queenstown 1 [Adventure Activities](https://www.queenstownnz.co.nz/things-to-do/adventure-activities/)
-* Queenstown 2 [Financial Times](https://propertylistings.ft.com/propertynews/queenstown/6109-five-reasons-to-live-in-queenstown-new-zealand.html)
-* Queenstown 3 [Virtuoso](https://www.virtuoso.com/travel/articles/city-guide-queenstown-new-zealand)
-* Queenstown 4 [Bucketlistly](https://www.bucketlistly.blog/posts/queenstown-things-to-do-backpacking)
-* Fjordland 1 [Britannica](https://cdn.britannica.com/51/59851-050-02ED07E5/Mitre-Peak-waters-Milford-Sound-Fiordland-National.jpg)
-* Fjordland 2 [Fjordland Helicopters](https://www.fiordlandhelicopters.co.nz/dusky-doubtful/)
-* Fjordland 3 [PSU.edu](https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/3/61309/files/2017/01/Fiordland-National-Park-Photo-143jraf.jpg)
-* Fjordland 4 [NZ Pocket Guide](https://nzpocketguide.com/10-best-kayak-tours-in-new-zealand/)
-* Bay of Islands 1 [Britannica](https://cdn.britannica.com/23/124823-050-723623CC/Russell-Bay-of-Islands-New-Zealand.jpg)
-* Bay of Islands 2 [NZ Pocket Guide](https://nzpocketguide.com/wp-content/uploads/2020/08/Kerikeri-Rainbow-Falls-Feature-Mandatory-Credit-Unsplash-3.jpg)
-* Bay of Islands 3 [NZ Pocket Guide](https://nzpocketguide.com/water-activities-in-the-bay-of-islands/)
-* Bay of Islands 4 [Zu Blu](https://www.zubludiving.com/images/Pacific/New-Zealand/Bay-of-Islands/Bay-of-Islands-New-Zealand-scuba-diving-11.jpg)
-* Tongariro National Park 1 [Love Taupo](https://d3qvqlc701gzhm.cloudfront.net/full/dc34abf72f24b44c88de4520ab3a4df190ba2a3b502969f010d055fc7d9598cc.jpg)
-* Tongariro National Park 2 [Love Taupo](https://www.lovetaupo.com/en/scenic-attractions/tongariro-alpine-crossing/)
-* Tongariro National Park 3 [Franks Travel Box](https://franks-travelbox.com/wp-content/uploads/2017/11/neuseeland-die-tongariro-alpine-crossing-tour-fucc88hrt-zu-den-spektakulacc88ren-gipfeln-des-ngauruhoe-und-des-tongariro-im-tongariro-nationalpark-in-neuseeland-tim90-shutterstock-1200x800.jpg)
-* Tongariro National Park 4 [Love Taupo](https://www.lovetaupo.com/en/scenic-attractions/tongariro-alpine-crossing/?asset=2475-ig-1811475489148930068_233983843)
-* Kaikoura 1 [Audley Travel](https://cdn.audleytravel.com/1050/750/79/7992863-kaikoura-new-zealand.webp)
-* Kaikoura 2 [Kaikoura Kayaks](https://www.kaikourakayaks.nz/library/images/01-kaikoura-canterbury-kyle-mulinder.jpg)
-* Kaikoura 3 [Trip Advisor](https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/5d/b9/cb/2-day-guided-seal-kayaking.jpg?w=1200&h=900&s=1)
-* Kaikoura 4 [Dolphin Encounter](https://www.dolphinencounter.co.nz/assets/Dolphin-Encounter-Files/6fb981f931/Dolphins_People_0007-v2__FocusFillWyItMC4yMyIsIi0wLjI4IiwxMjAwLDgwMF0.jpg)
+* Stardew Font [Custom font by Redditor @Cowsplay](https://www.reddit.com/r/StardewValley/comments/4dtgp7/by_popular_request_a_stardew_valley_font_for_your/), [Dropbox file from @Cowsplay](https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlkey=jt2mobz467ah9vhcyf404244e&e=1&st=zss04ys1&dl=0)
 
-**Peru**
-* Peru Main [Alexander Schimmeck](https://unsplash.com/photos/MraFXV3v7Ts)
-* Huaraz 1 [Evaneos](https://static1.evcdn.net/images/reduction/120921_w-1600_h-1200_q-75_m-crop.jpg)
-* Huaraz 2 [Matador Network](https://cdn1.matadornetwork.com/blogs/1/2019/07/Huaraz-and-glaciers-1200x853.jpg)
-* Huaraz 3 [Rainforest Cruises](https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/w_1120,h_745/v1625762935/Huaraz-Best-Hikes-Laguna-69/Huaraz-Best-Hikes-Laguna-69.jpg)
-* Huaraz 4 [Dave's Travel Corner](https://www.davestravelcorner.com/wp-blog/wp-content/uploads/2006/02/Bike-Riding-Huaraz.jpg)
-* Amazon 1 [Planet of Hotels](https://planetofhotels.com/guide/en/peru/puerto-maldonado)
-* Amazon 2 [Steppes Travel](https://planetofhotels.com/guide/en/peru/puerto-maldonado)
-* Amazon 3 [Pinterest](https://www.pinterest.co.uk/pin/20-places-everyone-should-visit-in-south-america--36028865747984505/)
-* Amazon 4 [World Travel Guide](https://www.worldtravelguide.net/wp-content/uploads/2019/01/shu-peru-amazon-rainforest-hut-in-river-226692121-1440x823.jpg)
-* Cusco 1 [Rough Guides](https://deih43ym53wif.cloudfront.net/cusco-peru-shutterstock_346277210.jpg_45fc70bd52.jpg)
-* Cusco 2 [Tour Scanner](https://tourscanner.com/blog/wp-content/uploads/2022/05/things-to-do-in-Cusco-Peru.jpg)
-* Cusco 3 [Destinationless Travel](https://destinationlesstravel.com/wp-content/uploads/2022/06/3-women-dressed-in-traditional-clothing-in-Cusco-Peru.jpg)
-* Cusco 4 [Britannica](https://cdn.britannica.com/30/94530-050-99493FEA/Machu-Picchu.jpg)
-* Lake Titicaca 1-4 [World Atlas](https://www.worldatlas.com/lakes/lake-titicaca.html)
-* Nazca 1 [PBS](https://www.pbs.org/wgbh/nova/media/original_images/nasca-1089342.jpg)
-* Nazca 2 [The Guardian](https://www.theguardian.com/world/2020/oct/18/huge-cat-found-etched-desert-nazca-lines-peru)
-* Nazca 3 [CNN](http://cdn.cnn.com/cnnnext/dam/assets/190905001543-01-nazca-lines-restricted.jpg)
-* Nazca 4 [Viator](https://www.viator.com/en-GB/tours/Nazca/Nazca-lines-Overflight/d32679-71751P41)
-
-**Kyrgyzstan**
-* Kyrgyzstan Main [Amir Asakeev](https://unsplash.com/photos/1y6xSXuiVHU)
-* Arslanbob 1 & 2 [Remote Lands](https://www.remotelands.com/destination/arslanbob-valley)
-* Arslanbob 3 [Outpost Magazine](https://outpostmagazine.com/kyrgyzstan-arslanbob-forest-walnuts-way-life/)
-* Arslanbob 4 [Journal of Nomads](https://www.journalofnomads.com/arslanbob-kyrgyzstan-travel-guide/)
-* Bishkek 1 [Minzifa Travel](https://minzifatravel.com/destinations-blog/travel-to-bishkek-the-capital-of-kyrgyzstan/)
-* Bishkek 2 [Itinari](https://www.itinari.com/country/kyrgyzstan/region/kg-bishkek)
-* Bishkek 3 [Epic Backpacker Tours](https://epicbackpackertours.com/blog/kyrgyzstan-food/)
-* Bishkek 4 [Silk Explore](https://silkroadexplore.com/blog/going-to-restaurants-in-kyrgyzstan-whats-happening/)
-* Jety-Oguz 1 [Travel Land](https://trvlland.com/kyrgyzstan/sights/jety-oguz)
-* Jety-Oguz 2 [Pinterest](https://www.pinterest.co.uk/pin/the-seven-bulls-of-jetioguz-kyrgyzstan--456411743467474442/)
-* Jety-Oguz 3 & 4 [Adventures of Lil Nicki](https://adventuresoflilnicki.com/jeti-oguz-kyrgyzstan/)
-* Issyk Kul 1 - 3 [The Planet D](https://theplanetd.com/issyk-kul-lake-kyrgyzstan/)
-* Issyk Kul 4 [Kalpak Travel](https://kalpak-travel.com/blog/issyk-kul/)
-* Song Kul all highlight photos [Kalpak Travel](https://kalpak-travel.com/blog/song-kul-kyrgyzstan/)
-
-**Mexico**
-* Mexico Main [Fer Gomez](https://unsplash.com/photos/Z2RdKLpLbDs)
-* Mexico City [Bloomberg](https://www.bloomberg.com/news/articles/2021-07-16/what-it-s-like-to-visit-mexico-city-right-now-great-food-rising-cases)
-* Mexico City [Expedia](https://www.expedia.co.uk/Paseo-De-La-Reforma-Mexico-City.d179290.Attraction)
-* Mexico City [Britannica](https://cdn.britannica.com/75/189875-050-0D548407/Frida-Kahlo-Museum-Coyoacan-Mexico.jpg)
-* Mexico City [The Taco Trail](https://thetacotrail.files.wordpress.com/2013/07/img_6394.jpg)
-* Tulum [Forbes](https://imageio.forbes.com/blogs-images/emilysiegel/files/2017/02/tulum-1200x750.jpg?format=jpg&width=1200)
-* Tulum [Travel & Leisure](https://www.travelandleisure.com/travel-guide/tulum)
-* Tulum [Peter Ruprecht](https://images.adsttc.com/media/images/5c8f/dbd6/284d/d1e4/9400/0712/large_jpg/2.jpg?1552931787)
-* Tulum [Island Life Mexico](https://www.islandlifemexico.com/wp-content/uploads/2021/01/playa-del-carmen-cenote-square.jpg)
-* Chichén Itzá [Itinari](https://img.itinari.com/pages/images/original/c2bd2f41-9cb2-4b12-98f1-0cdad06f35a6-istock-481272289.jpg?ch=DPR&dpr=2.625&w=1200&h=800&s=5fdfd987d045ea767baf8689a12fde32)
-* Chichén Itzá [Road Affair](https://www.roadaffair.com/visiting-chichen-itza-guide/)
-* Chichén Itzá [Carnival](https://www.carnival.com/shore-excursions/yucatan-progreso/chichen-itza-cenote-swim--buffet-320077)
-* Chichén Itzá [Magic Blue Planet](https://magicblueplanet.com/wp-content/uploads/2021/04/Cenotes-Guide.jpeg?ezimgfmt=rs:352x235/rscb1/ngcb1/notWebP)
-* Copper Canyon Railway [PTG Tours](https://www.ptg.co.uk/row-tour/railway-holiday-mexico/)
-* Copper Canyon Railway [Travel Dudes](https://traveldudes.com/wp-content/uploads/2021/03/Copper-Canyon-Mexico.jpg)
-* Copper Canyon Railway [Birding The Brooke and Beyond](https://birdingthebrookeandbeyond.files.wordpress.com/2015/06/img_4595.jpg)
-* Copper Canyon Railway [The Whole World or Nothing](https://thewholeworldornothing.com/copper-canyon-railway-guide/)
-* Oaxaca City [Nomadic Matt](https://www.nomadicmatt.com/travel-blogs/oaxaca/)
-* Oaxaca City [Mexperience](https://www.mexperience.com/travel/colonial/oaxaca/)
-* Oaxaca City [The Discoveries Of](https://www.thediscoveriesof.com/things-to-do-in-oaxaca/)
-* Oaxaca City [Guide Oaxaca](https://guideoaxaca.com/wp-content/uploads/2020/06/San-Isidro-Roaguia-Hierve-el-Agua-Oct-2015-730.jpg)
-
-**China**
-* China Main [Teddy2 H](https://unsplash.com/photos/mjA7HPG2SYA)
-* The Great Wall of China - all highlight photos [World Atlas](https://www.worldatlas.com/heritage-sites/great-wall-of-china.html)
-* Potala Palace - all highlight photos [Britannica](https://www.britannica.com/topic/Potala-Palace)
-* The Terracotta Army - all highlight photos [Britannica](https://www.britannica.com/topic/terra-cotta-army)
-* Panda Centre [Air Pano](https://www.airpano.com/files/video_china_pandas_01_big.jpg)
-* Panda Centre [China Discovery](https://www.chinadiscovery.com/assets/images/travel-guide/chengdu/chengdu-panda-base/red-panda.jpg)
-* Panda Centre [Klook](https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_720/activities/sv1tqmzrlzuvnjyy9gct/GiantPandaBreedingResearchBaseTicketChengdu-IDCardDirectEntry.webp)
-* Panda Centre [ABC News](https://s.abcnews.com/images/Lifestyle/gty_baby_pandas_02_jc_160930_16x9_992.jpg)
-* The Yangtze River [Wikipedia](https://en.wikipedia.org/wiki/Three_Gorges)
-* The Yangtze River [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:One_of_three_gorges_on_Yangtze_river.jpg)
-* The Yangtze River [Links Travel and Tours](https://linkstravelandtours.co.uk/destinations/china/tours/yangtze-river-cruise/)
-* The Yangtze River [Petrex GMBH](https://www.petrexgmbh.com/wp-content/uploads/2020/05/yangtze-river-2-1080x675.jpeg)
-
-**Zambia**
-* Zambia Main [Bibhash (Knapsnack.life) Banerjee ](https://unsplash.com/photos/ZbJwMkhj_yI)
-* Victoria Falls 1 & 2 [Britannia](https://www.britannica.com/place/Victoria-Falls-waterfall-Zambia-Zimbabwe)
-* Victoria Falls [Trip Savvy](https://www.tripsavvy.com/swimming-at-devils-pool-victoria-falls-1454647)
-* Victoria Falls [Travelstart](https://www.travelstart.co.za/blog/adventure-activities-victoria-falls/)
-* Lower Zambezi National Park [Time Magazine](https://time.com/collection/worlds-greatest-places-2022/6194631/lower-zambezi-national-park-zambia/)
-* Lower Zambezi National Park [Robin Pope Safaris](https://www.robinpopesafaris.net/wp-content/uploads/lower-zambezi-national-park-robin-pope-safaris-scaled.jpg)
-* Lower Zambezi National Park all highlight photos [Rachel Rebibo Photography](https://www.rachelrebibo.com/photography/lower-zambezi-national-park)
-* South Luangwa National Park all highlight photos [Rachel Rebibo Photography](https://www.rachelrebibo.com/photography/south-luangwa-national-park)
-* Kafue National Park all highlight photos [Natucate](https://www.natucate.com/en/blog/travel-guide/zambia-kafue-national-park)
-* Lake Kashiba [Fast Track Visa](https://www.fasttrackvisa.com/blog/entry-to-zambia/)
-* Lake Kashiba [Kafakumba](https://www.kafakumbalogistics.com/)
-* Lake Kashiba 3 & 4 [Pwando24](https://www.facebook.com/pwando24/posts/2509074145889425?locale=ne_NP&paipv=0&eav=AfYGwDvL2chHGT9GCnQUqZUz47BTVoe4SKmfArQofASI_-oNa-ngjRXBOLwrX3rjusY&_rdr)
 
 - - -
 ### Acknowledgements
 
-* My mentor [Gareth McGirr](https://github.com/Gareth-McGirr/) for all his help and advice throughout the project
+* Especially to my new college lecturer, Tom Cowen, for picking up the pieces and being the best motivational speaker and time warden.
+* My fellow CI cohort for advice and support
+* My mentor Mo Shami for all his help and advice throughout the project
 * The whole team at [Code Institute](https://codeinstitute.net/) for their teaching and support
+* To [Concerned Ape](Stardewvalley.net) for making such an awesome game to begin with, and acting as inspiration for my project
+* Friends and family for testing and for endless cups of tea while enduring hours of tapping noisily at my keyboard
 
 - - -
-- - -
-
-[Go to Top](#the-travel-personality-quiz)
-
-
-
-
-
-
-
-background: https://i.pinimg.com/originals/95/26/f0/9526f08c1e26dcb4f6b9afd9d76af8ab.png
-stardew valley logo: https://stardewvalley.net/wp-content/uploads/2017/12/main_logo.png
-type font: https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlkey=jt2mobz467ah9vhcyf404244e&e=1&st=zss04ys1&dl=0 from @cowsplay on reddit.
-card back: stardew valley wiki acheivements page https://stardewvalleywiki.com/mediawiki/images/7/72/Achievement_Local_Legend.jpg
 
 
 x set up the page with background.
@@ -885,143 +707,7 @@ add extra level?
 - forgot to stop timer at end of game.
 - logo image not displaying on deployed site, fixed src address to rectify
 
-learning for datasets - Code Sketch, Youtube. and DCode, Domenade.com and youtube
-learning for shuffle - code sketch - 11/11 memory game youtube tutroial. grid, flexbox
-learning for timer and moves counter - CogniVis AI on youtube
 
 live testing done by my 9 year old daughter. She said "its fun!"
 live testing during development by 11 year old daughter. A nod of approval was a big win for me, i felt 100x aura added.
 live testing done by my husband. He is not familiar with Stardew Valley but he thought it was cutesy.
-
-
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome Zoe Heathcote,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
