@@ -402,8 +402,6 @@ Take the time taken into account and display. Where the Moves score is the same,
 
 - - -
 
->>>>>>>>>>>>>>>>>>>>>>>> DONE TO HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>
-
 ## JavaScript Functionality
 
 This section explains in plain English what happens in the JavaScript code as the user moves through the game. This is in addition to the comments in the JavaScript Code.

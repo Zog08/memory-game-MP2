@@ -218,36 +218,157 @@ I tested the site based on my user stories:
 
 | No. | User Goal | How is it achieved? |
 | :--- | :--- | :--- |
-| 1 | I want to take part in a fun, online game to find out my travel personality and my ideal travel destination | The quiz is a fun, online game which gives people an insight in to their personality and recommends a destination. It has been designed to be highly personalised, makes real-world recommendations and has a light-hearted style to keep things fun. |
-| 2 | I want to see information, images and a map of my recommended destination | The results section contains lots of information about the recommended destination, about the country in general as well as an interactive map from Google Maps API which can be clicked to find out about some of that country's top highlights. |
-| 3 | I want to see a breakdown of my results to learn more about my personality | The personality results are detailed with a pie chart to make them visual as well as a colour key and percentage information. This also helps to explain to the user that the country recommendation is based on the full personality results and is therefore personalised to them. There is also text information about the personality type |
-| 4 | I want to access the quiz on any device | The quiz has been designed to be fully responsive across desktop, tablet and mobile and extensively tested on each.|
-| 5 | I want to navigate the site easily | The site has a linear navigation where you follow the quiz through and minimal clicks are required to submit answers. At all times there is a button to take you back to the beginning of the quiz.|
+| 1 | I want to take part in a fun, online game | The memoy game is a fun, online game which gives people an insight in to the worl of Stardew Valley. It has been designed to be light-hearted and lo-fi in style to keep things fun. |
+| 2 | I want to test my memory skills | The memory game uses 12 upturned character cards to test the users memory skills |
+| 3 | I want to improve my memory skills / brainpower / speed | While playing multiple times, scores improve as the user can more confidently identify each character from Stardew Valley. The timer and move counter quantify improvement, and the leader board with top 5 scores incentivise the user to improve |
+| 4 | I want to enjoy the Stardew Valley theme | The website has been based on the original Stardew Valley artwork, using the official characters, font and theme throughout. |
+| 5 | I want to access the quiz on any device | The site has been designed to be as minimal and lo-fi as possible. Special consideration has been taken to ensure that the game appears on small to large screens without loss of enjoyment or accessibility. |
+| 6| I want to navigate the site easily | Every page has a link to the welcome screen within the logo header. The buttons are noticeable as a usable feature. There is uncluttered and friendly design layout throughout the website. Buttons and forms are labelled correctly, along with aria-labels for screen readers. |
+| 7 | I want to entertain visitors to my site and keep them there for longer periods of time | The game is designed as simple and easy to understand, yet grabs the users attention. The hiscore board motivates the user to try again to beat a previous score. |
+| 8 | I want to educate the user on Stardew Valley Characters and artwork | All of the artwork was lifted from the [Official Concerned Ape, Stardew Valley game](stardewvalleywiki.com). The images throughout are of good quality and the design is cohesive in terms of branding etc. |
+| 9 | I want the user to enjoy visiting my site | The site is fun to play and easy to use. As a user its a fun way to become aware of the Stardew Valley brand and the original game. |
+| 10 | I want to capture new audiences and translate them into regular visitors | The user should find the game enjoyable and easy to use, therefore resulting in the user staying to play for longer and getting acquainted with some of the characters presented within. The branding and visual imagery goes a long way to presenting an overview of how the original game looks, thus whetting the users appetite and search for more things Stardew Valley. |
+| 11 | I want the site to work correctly and efficiently | The site has been extensively tested by myself and other throughout the site build, and also through validation sites and accesibility tests etc. Corrections and debugging has been ongoing until a useable version of the site had been produced for use. Links and buttons, and the game itself has been manually tested by family and acquaintances. A simple UX has worked perfectly for this project. |
 
-**Screen Recordings of User Stories**
 
-<details><summary>User Story 1: I want to take part in a fun, online game to find out my travel personality and my ideal travel destination</summary>
-<img src="docs/testing/testing_us1.gif">
+#### User Story 1: I want to take part in a fun, online game
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Memory Game | Click 'Play Game', click 'Click to Play', play the game by tapping / clicking on the card images to find matching pairs | Game is played | Works as expected |
+<details><summary>User Story 1: Screenshots</summary>
+<img src="docs/testing/testing-us1.png">
+**Screenshot of game in play**
 </details>
 
-<details><summary>User Story 2: I want to see information, images and a map of my recommended destination</summary>
-<img src="docs/testing/testing_us2.gif">
+#### User Story 2: I want to test my memory skills
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Memory Game | Click 'Play Game', click 'Click to Play', play the game by tapping / clicking on the card images to find matching pairs | Game is played | Works as expected |
+| Hi-Score table | Click 'Play Game', click 'Click to Play', play the game by tapping / clicking on the card images to find matching pairs. Once game is over, enter username in form box, click Save Name button | Game is played, hiscore is stored locally. Name is saved. Top 5 scores displayed on screen | Works as expected |
+<details><summary>User Story 2: Screenshots</summary>
+<img src="docs/testing/testing-us1.png">
+**Game in play**
+<img src="docs/testing/testing-us2.png">
+**Hiscore table offer qualitative visualisation of score**
 </details>
 
-<details><summary>User Story 3: I want to see a breakdown of my results to learn more about my personality</summary>
-<img src="docs/testing/testing_us3.gif">
+#### User Story 3: I want to improve my memory skills / brainpower / speed
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Text box containing move counter and timer | Click 'Play Game', click 'Click to Play', play the game by tapping / clicking on the card images to find matching pairs. Timer move counter starts on first click and ends on game completion | Game is played, timer and moves counter shown correctly on screen. | Works as expected |
+| Hi-Score table | Click 'Play Game', click 'Click to Play', play the game by tapping / clicking on the card images to find matching pairs. Once game is over, enter username in form box, click Save Name button | Game is played, hiscore is stored locally. Name is saved. Top 5 scores displayed on screen | Works as expected |
+| Memory Game | Click 'Play Game', click 'Click to Play', play the game by tapping / clicking on the card images to find matching pairs | Game is played, knowledge of characters improve | Works as expected |
+<details><summary>User Story 3: Screenshots</summary>
+<img src="docs/testing/testing-us3.png">
+**Time and move counters offer incentive to improve / beat the clock**
+<img src="docs/testing/testing-us2.png">
+**HiScore table offers incentive to improve and reach the leaderboard top**
+<img src="docs/testing/testing-us1.png">
+**Playing the game improves knowledge of characters and ease of memory**
 </details>
 
-<details><summary>User Story 4: I want to access the quiz on any device</summary>
-<img src="docs/testing/testing_us4_1.gif">
-<img src="docs/testing/testing_us4_2.gif">
-<img src="docs/testing/testing_us4_3.gif">
+#### User Story 4: I want to enjoy the Stardew Valley theme
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Logo header image from original Stardew Valley Game | Visible at the top of all the pages on the site. | Improves user knowledge and enjoyment of Stardew Valley branding and design. | Works as expected |
+| Memory Game | Click 'Play Game', click 'Click to Play', play the game by tapping / clicking on the card images to find matching pairs | Game is played, knowledge of characters and branding design enjoyed | Works as expected |
+| Stardew Valley official font | Visible on almost all text on the website. | On any given page of the site, knowledge andawareness of Stardew theme is enjoyed | Works as expected |
+<details><summary>User Story 4: Screenshots</summary>
+<img src="docs/testing/testing-us4.png">
+**Official Stardew Valley logo**
+<img src="docs/testing/testing-us1.png">
+**Multiple official Stardew Valley characters and background image**
+<img src="docs/testing/testing-us4-2.png">
+**Official Stardew Valley custom font**
 </details>
 
-<details><summary>User Story 5: I want to navigate the site easily</summary>
-<img src="docs/testing/testing_us5_1.gif">
-<img src="docs/testing/testing_us5_2.gif">
-<img src="docs/testing/testing_us5_3.gif">
+#### User Story 5: I want to access the quiz on any device
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Played on Apple Macbook air 2024 13" | All pages tested, screenshots shown from responsive google chrome inspection panel | User can play on laptop / desktop screen | Works as expected |
+| Played on Apple iPad mini | All pages tested, screenshots shown from responsive google chrome inspection panel | User can play on tablet sized screen, in both portrait and landscape mode | Works as expected |
+| Played on Apple iPhone SE | All pages tested, screenshots shown from responsive google chrome inspection panel | User can play on smaller phone screen in portrait and landscape mode | Works as expected |
+<details><summary>User Story 5: Screenshots</summary>
+<img src="docs/testing/testing-us5-1.png">
+**Shown on Apple macbook Air 13" 2024**
+<img src="docs/testing/testing-us5-2.png">
+**Shown on iPad mini in portrait mode**
+<img src="docs/testing/testing-us5-3.png">
+**Shown on Apple iPhone SE in portrait mode**
+</details>
+
+#### User Story 6: I want to navigate the site easily
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Find correct open tab on browser | All pages tested, tab icon and title displayed on the tab. Click on tab to open the webpage where last left off. | User can easily find game on an opened tab | Works as expected |
+| Stardew Valley logo with link to home page in | All pages tested, click on logo header to redirect to home welcome page | Return to home welcome page | Works as expected |
+| Played on Apple iPhone SE | All pages tested, screenshots shown from responsive google chrome inspection panel | User can play on smaller phone screen in portrait and landscape mode | Works as expected |
+<details><summary>User Story 6: Screenshots</summary>
+<img src="docs/testing/testing-us6-1.png">
+**Junimo character tab icon / favicon to navigate to correct tab**
+<img src="docs/testing/testing-us6-2.png">
+**All pages have back to home page link within the logo header image**
+<img src="docs/testing/testing-us6-3.png">
+**Buttons are easily identifiable and accessible**
+<img src="docs/testing/testing-us6-4.png">
+**Cards are laid out sensibly and large enough to observe correctly**
+<img src="docs/testing/testing-us6-5.png">
+**404 page notifies of broken links etc and redirects you home without back button**
+</details>
+
+#### User Story 7: I want to entertain visitors to my site and keep them there for longer periods of time
+<<<<<<<<<<<<<<<<<<__***DONE TO HERE!!!!***__>>>>>>>>>>>>>>>>>>
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Find correct open tab on browser | All pages tested, tab icon and title displayed on the tab. Click on tab to open the webpage where last left off. | User can easily find game on an opened tab | Works as expected |
+| Stardew Valley logo with link to home page in | All pages tested, click on logo header to redirect to home welcome page | Return to home welcome page | Works as expected |
+| Played on Apple iPhone SE | All pages tested, screenshots shown from responsive google chrome inspection panel | User can play on smaller phone screen in portrait and landscape mode | Works as expected |
+<details><summary>User Story 7: Screenshots</summary>
+<img src="docs/testing/testing-us7-1.png">
+**Moves counter and timer incentivises the user to stay and beat the clock**
+<img src="docs/testing/testing-us7-2.png">
+**Entering name incentivises the user to reach the hiscore board**
+<img src="docs/testing/testing-us7-3.png">
+**Seeing the users name on the hiscore board incentivises them to stay and reach it**
+</details>
+
+#### User Story 8: I want to educate the user on Stardew Valley Characters and artwork
+
+<details><summary>User Story 8: Screenshots</summary>
+<img src="docs/testing/testing-us5-1.png">
+<img src="docs/testing/testing-us5-2.png">
+<img src="docs/testing/testing-us5-3.png">
+</details>
+
+#### User Story 9: I want the user to enjoy visiting my site
+
+<details><summary>User Story 9: Screenshots</summary>
+<img src="docs/testing/testing-us5-1.png">
+<img src="docs/testing/testing-us5-2.png">
+<img src="docs/testing/testing-us5-3.png">
+</details>
+
+#### User Story 10: I want to access the quiz on any device
+
+
+<details><summary>User Story 10: Screenshots</summary>
+<img src="docs/testing/testing-us5-1.png">
+<img src="docs/testing/testing-us5-2.png">
+<img src="docs/testing/testing-us5-3.png">
+</details>
+
+#### User Story 11: I want to access the quiz on any device
+
+<details><summary>User Story 11: Screenshots</summary>
+<img src="docs/testing/testing-us5-1.png">
+<img src="docs/testing/testing-us5-2.png">
+<img src="docs/testing/testing-us5-3.png">
 </details>
 
 - - -
