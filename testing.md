@@ -326,9 +326,9 @@ I tested the site based on my user stories:
 <<<<<<<<<<<<<<<<<<__***DONE TO HERE!!!!***__>>>>>>>>>>>>>>>>>>
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Find correct open tab on browser | All pages tested, tab icon and title displayed on the tab. Click on tab to open the webpage where last left off. | User can easily find game on an opened tab | Works as expected |
-| Stardew Valley logo with link to home page in | All pages tested, click on logo header to redirect to home welcome page | Return to home welcome page | Works as expected |
-| Played on Apple iPhone SE | All pages tested, screenshots shown from responsive google chrome inspection panel | User can play on smaller phone screen in portrait and landscape mode | Works as expected |
+| In game move counter and timer | Click to play game on home screen, play game on game screen and timer and moves counter start automatically | User can visually quantify how they are doing in the current game and figure out if they are improving. This incentivises the user to stay and play again. | Works as expected |
+| Enter user name to save score | Once game has ended, user is automatically redirected to the end acreen. Click into the username form input. Enter name. Click save. | Name and most recent score is saved to the local storage. Incentivises user to stay and play again. | Works as expected |
+| Hiscore list with player names and hiscores displayed |On end screen, after playing game and entering name to save as above, top 5 best score saved data is visually represnted on screen with player name and the corresponding score.  | The top 5 best scores and the corresponding player name is shown in the hiscore table on screen after page is refreshed. This incentivises the user to play again to beat a previous score. | Works as expected |
 <details><summary>User Story 7: Screenshots</summary>
 <img src="docs/testing/testing-us7-1.png">
 **Moves counter and timer incentivises the user to stay and beat the clock**
@@ -340,35 +340,56 @@ I tested the site based on my user stories:
 
 #### User Story 8: I want to educate the user on Stardew Valley Characters and artwork
 
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Junimo character favicon | Visible at the top tab on an open desktop window | User can see the recognisable Junimo character on the open tab top on all pages, reminding them of the Stardew Valley characters and branding | Works as expected |
+| Stardew Valley Logo | Present at the top header of all pages.  | Makes the branding cohesive and instantly recognisable as the official stardew valley branding. | Works as expected |
+| Stardew Valley official font used in all text areas of the page (where supported) | All pages use the Stardew Valley font where supported.  | Makes the branding cohesive and instantly recognisable as the official stardew valley font. | Works as expected |
+| Stardew Valley official characters and background images  | On all pages, the backdrop is instantly recognisable as Stardew Valley from the original game.  | The design features are followed by my page throughout to keep it cohesive, simple and recognisable | Works as expected |
 <details><summary>User Story 8: Screenshots</summary>
-<img src="docs/testing/testing-us5-1.png">
-<img src="docs/testing/testing-us5-2.png">
-<img src="docs/testing/testing-us5-3.png">
+<img src="docs/testing/testing-us8-1.png">
+<img src="docs/testing/testing-us8-2.png">
+<img src="docs/testing/testing-us8-3.png">
+<img src="docs/testing/testing-us8-4.png">
 </details>
 
 #### User Story 9: I want the user to enjoy visiting my site
 
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Stardew Valley Logo | Visible on all pages as the top header | User can see the recognisable Stardew Valley branding and be excited about playing something in a theme they love. Links back to home page when clicked to make the site easier to navigate and more joyful to use. The colours and design really tap in to the fun Stardew Theme and is very visually appealing. | Works as expected |
+| Rules to play | On index welcome page, click on 'How to Play' button.  | An accordion box unfolds on screen containing the rules to the game. Nice and simple. | Works as expected |
+| Stardew Valley Memory card game | Navigate to game page by clicking on 'Play Game' then 'Click to Play'. From here you can tap or click on pais of cards to play a fun game.  | Fun game to test the users memory and make them familiar with Stardew Valley and some of its characters. Play is smooth and easy to use. | Works as expected |
+| HiScore Board  | Once you have played the game as outlined in the previous action, the user is automatically redirected the the End page. Here the user can enter their name and if the most recent score makes the top 5 best, it is displayed as 'name' and 'score' on the hiscore board.  | The hiscore board appeases to the users enjoyment and incentivises them to stay and play again. | Works as expected |
 <details><summary>User Story 9: Screenshots</summary>
-<img src="docs/testing/testing-us5-1.png">
-<img src="docs/testing/testing-us5-2.png">
-<img src="docs/testing/testing-us5-3.png">
+<img src="docs/testing/testing-us9-1.png">
+<img src="docs/testing/testing-us9-2.png">
+<img src="docs/testing/testing-us9-3.png">
+<img src="docs/testing/testing-us9-4.png">
 </details>
 
-#### User Story 10: I want to access the quiz on any device
+#### User Story 10: I want to capture new audiences and translate them into regular visitors
 
-
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Use of Official artwork and characters | Visible on all screens and all pages | The user is introduced to the world of Stardew Valley by making them familiar with the cute design and artwork, and one hopes that the user becomes a fan of this style if theyve never seen it before. Or visits based on their past familiarity with Stardew Valley. | Works as expected |
+| Enter user name to save score and hiscore board | Once game has ended, user is automatically redirected to the end acreen. Click into the username form input. Enter name. Click save. | Name and most recent score is saved to the local storage. Incentivises user to stay and play again, or revist again and again themselves to beat the last score. The user would hopefully share the game with friends to see if they could also beat their hiscore. | Works as expected |
+| The memory card game | From welcome screen, click 'Play Game' and then 'Click to Play'. User can tap or click on the cards to match characters together, havoing fun while using their brain, and visually seeing whether theyre beating a previous score or time.  | The top 5 best scores and the corresponding player name is shown in the hiscore table on screen after page is refreshed. This incentivises the user to play again or revisit to beat a previous score. | Works as expected |
 <details><summary>User Story 10: Screenshots</summary>
-<img src="docs/testing/testing-us5-1.png">
-<img src="docs/testing/testing-us5-2.png">
-<img src="docs/testing/testing-us5-3.png">
+<img src="docs/testing/testing-us10-1.png">
+<img src="docs/testing/testing-us10-2.png">
+<img src="docs/testing/testing-us10-3.png">
 </details>
 
-#### User Story 11: I want to access the quiz on any device
+#### User Story 11: I want the site to work correctly and efficiently
 
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Multiple online tests taken out | The website has been put through rigorous online testing as outline in this document. To show Lighthouse testing, open the page on desktop Google Chrom. Right Click then choose 'Inspect'. Navigate to the Lighthouse menu in the top right corner and click 'Analyze page load'. Also used, JSHint, W3S CSS checker, W3S HTML checker, WAVE Accesibility reporting. | The user is subject to accessible and easy to use website, with good solid clean code at its core. The scores were all over the accepted levels. | Works as expected |
+| Manual Testing | Throughtout development and at the end, manual testing was used by myself and those around me.  | Information and research from these tests were used to help generate an easier interface or smoother running game, and ensured no bugs or mistakes were shown in the final result | Works as expected |
 <details><summary>User Story 11: Screenshots</summary>
-<img src="docs/testing/testing-us5-1.png">
-<img src="docs/testing/testing-us5-2.png">
-<img src="docs/testing/testing-us5-3.png">
+<img src="docs/testing/testing-us11-1.png">
+<img src="docs/testing/testing-us11-2.png">
 </details>
 
 - - -
@@ -377,11 +398,12 @@ I tested the site based on my user stories:
 #### **Responsiveness / Device Testing**
 
 The site was tested on the following devices
-* Apple Macbook Pro 16inch
-* LG Ultrafine Display 27inch External Monitor
-* Apple iMac 5K 27-inch
-* Apple iPhone SE
-* Apple iPhone 5S
+* Apple Macbook M3 Air 13", iOS Sonoma 14.5, 2024, Safari browser.
+* Apple iPad Pro 12.9" 3rd Gen, iOS 17.6.1, portrait and landscape, Safari browser.
+* Apple iPhone SE 1st Gen, portrait and landscape.
+* Apple iPhone 14 pro, iOS 18.2.1, portrait and landscape, Safari, Chrome and MS Edge browsers.
+* Samsung Galaxy s22+, portrait and landscape. 
+* Dell Optiplex 3050, Microsoft Edge browser.
 * Google Chrome Developer Tools - simulator for all different device options as well as using the adjustable sizing options
 
 **Bugs found - specific to device testing:**
