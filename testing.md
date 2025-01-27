@@ -403,7 +403,7 @@ The site was tested on the following devices
 * Apple iPhone SE 1st Gen, portrait and landscape.
 * Apple iPhone 14 pro, iOS 18.2.1, portrait and landscape, Safari, Chrome and MS Edge browsers.
 * Samsung Galaxy s22+, portrait and landscape. 
-* Dell Optiplex 3050, Microsoft Edge browser.
+* Dell Optiplex 3050, Microsoft Edge browser, 23.5" screen.
 * Google Chrome Developer Tools - simulator for all different device options as well as using the adjustable sizing options
 
 **Bugs found - specific to device testing:**
