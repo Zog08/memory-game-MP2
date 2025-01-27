@@ -30,10 +30,11 @@ https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlk
     min-height: 82px;
     display: flex;
     padding-top: 10px;
+    margin: auto;
     justify-self: center;
-    -webkit-justify-self: center;
+    /*-webkit-justify-self: center;
     align-items: center;
-    -webkit-align-items: center;
+    -webkit-align-items: center;*/
 }
 
 h1 {
@@ -111,6 +112,7 @@ h1 {
     font-weight: bold;
     font-size: 17px;
     display: flex;
+    margin: auto;
     justify-content: center;
     background-color: #f6b561;
     width: 310px;
