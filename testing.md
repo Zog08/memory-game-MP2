@@ -178,7 +178,7 @@ I found that my website scored excellently in all areas tested, but I decided to
 #### **Results**
 <details><summary>All Pages - console warning</summary>
 
-* 'Best Practise' flagged an error in console, "Browser errors were logged to the console"
+* 'Best Practise' flagged an error in console, "Browser errors were logged to the console" "Cannot set properties of null"
 * Decision made to not change the code to improve this score. The error is logged because before the game is played there is no score to save / get from local storage hence the null output. This error does not show when tested after a game is played and the mostRecentScore is ready in local storage to be retrieved by the function that sets the innerText.
 <img src="docs/testing/lighthouse-index.png">
 <img src="docs/testing/lighthouse-game-error.png">
@@ -201,7 +201,7 @@ I found that my website scored excellently in all areas tested, but I decided to
 <img src="docs/testing/testing_lh_404_mobile1.jpeg">
 
 **404 Page**
-This page had a warning for 'Low resolution image used'. I decided not to change the image because there was no other image of the Stardew specific magnifying glass available in greater resolution. I decided that because the image is small and by its very nature supposed to look lo-fi and pixelated that it did not affect enjoyment of the game. The previously found console warning also showed here, but if I retested with a mostRecentScore saved in the local storage, again this improved the score.
+This page had a warning for 'Low resolution image used'. I decided not to change the image because there was no other image of the Stardew specific magnifying glass available in greater resolution. I decided that because the image is small and by its very nature supposed to look lo-fi and pixelated that it did not affect enjoyment of the game. The previously found console warning also showed here regarding local storage cannot set property of null, but if I retested with a mostRecentScore saved in the local storage, again this negated the error and thus improved the score.
 
 <img src="docs/testing/lighthouse-404.png">
 

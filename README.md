@@ -258,6 +258,7 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 </details>
 
 * I included a Favicon for the site using the 'Junimo' image from Stardew Valley. This helped to build the brand and continue the site design in the user's browser tab. It is also the same as the custom cursor hover over the playing cards.
+* **User stories covered: 4, 6, 8, 9, 11**
 
 #### **Logo**
 
@@ -272,6 +273,7 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 * A simple logo with the name of the game
 * The logo appears on all pages
 * The logo is clickable. The 404 page had an alert on WAVE accessibility because of this, because it is a neighbour to the same link destination, namely the 'Go Home' button. I decided to ignore this warning as the 404 page is seldom visited and doesn't affect enjoyment of the game, and because I think it would be confusing to get back to the index page without the link in the logo if it broke from the way the logo worked on all other pages.
+* **User stories covered: 4, 6, 7, 8, 9, 11**
 
 - - -
 
@@ -300,6 +302,7 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 * When one accordion is in use, the other collapses back
 * Click to Play button - launches the memory game
     * Click to Play button has a hover effect on non touchscreen devices with a shadow transition appearing
+* **User stories covered: 1, 4, 5, 6, 8, 9, 11**
 
 - - -
 
@@ -327,6 +330,7 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 * Custom cursor of 'Junimo' image when hovering over the cards on desktop. This reflects the icon on the browser tab.
 * When clicked, the cards have an 2 animations: they shrink back slightly, before visually turning 180 degrees
 * You can click the logo header to return back to the main screen. This is well out of the way so the user is unlikely to accidentally click this mid-game.
+* **User stories covered: All, 1-11**
 
 
 ### **End Results Page**
@@ -354,6 +358,7 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 * If the score is in the top 5 scores (decided and sorted by fewest moves), the players entered name and score is shown on the hiScore list
 * There are 2 more buttons at the base of the form box; one to play the game again (Play Again) and one for returning back to the index welcome page (Go Home)
 * All the buttons have a hover animation; when the mouse is hovered over the buttons they transition with a shadow to give a 3d layered effect
+* **User stories covered: 4, 5, 6, 7, 8, 9, 10, 11**
 
 - - -
 ### 404 Page
@@ -374,6 +379,7 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 * The text is light hearted and relevant to the theme of the quiz
 * There is a button to take the user back to the home page so there is no need to user the browser back button
 * The logo also has a link to return to the home page, as is consistent with the rest of the website on all pages
+* **User stories covered: 5, 6, 8, 9, 11**
 
 - - -
 ### Future Features
