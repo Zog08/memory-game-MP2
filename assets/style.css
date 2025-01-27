@@ -31,6 +31,9 @@ https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlk
     display: flex;
     padding-top: 10px;
     justify-self: center;
+    -webkit-justify-self: center;
+    align-items: center;
+    -webkit-align-items: center;
 }
 
 h1 {
