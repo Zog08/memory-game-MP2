@@ -1,4 +1,4 @@
-# Stardew Valley Themed Memory Game - Testing
+# Stardew Valley Themed Memory Game - Testing {#top}
 
 ![Mock-up](docs/mockups/mockup-allscreens.png)
 
@@ -493,7 +493,7 @@ I realised that Chrome development tests for various sizes of devices but does n
 I learned how to install developer tools for safari on my macbook and did some testing to figure out what Safari needed in order for the divs to be centred as shown on other browsers.
 The missing code was quite simple, adding in auto margin to the divs, as follows, in the CSS code:
 
-```
+```CSS
 .meta {
     .
     .
@@ -525,7 +525,7 @@ The missing code was quite simple, adding in auto margin to the divs, as follows
 All features worked up until the point of showing the name and scores after clicking save name button. The console was showing the correct array of usernames and scores, so everything else was working correctly.
 I realised that the scores would only show if the user was redirected to another page. I didnt want to direct the player away from the last page yet, so I added a page reload to the js code as follows:
 
-```
+```javascript
 
 saveHighScore = e => { 
     e.preventDefault();
@@ -542,7 +542,7 @@ window.location.reload();               // reloads page when you click save, to 
 
 ```
 
-* Adding `<script>window.location.reload();</script>` to the saveHighScore function in javascript code
+* Adding `window.location.reload();` to the saveHighScore function in javascript code
 
 - - -
 #### **4: Null entered as hi-score**
@@ -570,6 +570,6 @@ All information about remaining bugs is included in the information above.
 
 - - -
 
-[Go to Top](#-Stardew-Valley-Themed-Memory-Game---Testing)
+[Go to Top](#top)
 
 [Go to README](README.md)
