@@ -291,6 +291,8 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
   * Help and tutoring, courses from Laurence Svekis and Colt Steele
 * [Code Institute](https://codeinstitute.com)
   * Initial training, support, mentoring and tutoring
+* [Code Institute Slack](https://slack.com)
+  * Daily help, support and guidance from my fellow cohort and peers. Peer review channel also used.
 
 - - -
 

@@ -482,7 +482,7 @@ I tested the site based on my user stories:
 
 #### **Browser Compatibility**
 
-#### **Responsiveness / Device Testing**
+##### **Responsiveness / Device Testing**
 
 The site was tested on the following devices
 
@@ -506,6 +506,10 @@ The site was tested on the following devices
 **My children, the harshest critics, testing at home during development!**
 
 </details>
+
+##### **Peer-to-Peer Review**
+
+The site was also submitted for review by my peers on Code Institute Slack Peer-to-Peer channel. I was given lots of support, moral and technical, with a coupke of future features suggested, and received with thanks!
 
 **Bug found - specific to device testing:**
 
