@@ -7,7 +7,7 @@ const time =  document.querySelector(".timer");
 // target the panels for the drop down accordion on index page
 const accordion = document.querySelectorAll(".panel"); 
 
-// accordion function on index page - with help from Laurence Svekis on Udemy https://www.udemy.com/share/101XdM/
+// accordion function on index page - with help from Laurence Svekis on Udemy, see README for more info and links
 accordion.forEach(function (ele) {              
     ele.addEventListener('click', toggleEle);
 });
@@ -29,7 +29,7 @@ let pairs = 0,
     minutes = 0;
 
 function flipCard() {
-    if (lockBoard) return;
+    if (lockBoard) return;              // 'lockboard' prevents multiple extra cards being flipped. From CodeSketchLab on Youtbue (see README for link)
     if (this === firstCard) return;     // if the card has been double clicked, return from the function
     this.classList.add('flip');         // add flip card class when flipped first time
     moveCounter();
@@ -113,7 +113,7 @@ function endGame() {
     }, 300);
 }
 
-function moveCounter() {            // moves and timer learning, CogniVis AI youtube channel, https://youtu.be/-5V0rUxJUbY?feature=shared
+function moveCounter() {            // moves and timer learning, CogniVis AI youtube channel, see README for more info and links
     moves++;                        // add 1 to moves counter each flip. 
     counter.innerHTML = moves;      // show in .moves html
     if (moves == 1) {               // starts timer on first move, not on page load
