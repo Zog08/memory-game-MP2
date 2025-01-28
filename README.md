@@ -43,7 +43,7 @@ The quiz was built as the second milestone project for my Diploma in Web Applica
 However in order to make the end product more professional and to help with create a clear scope for the project I treated it as a real-world application which could be used by a person wishing to play a game or as a fan of Stardew Valley. This client's goals would be:
 
 * Engaging users with a fun game to test their memory
-* Engaging users who are fans of Stardew Valley 
+* Engaging users who are fans of Stardew Valley
 * Engaging users who have not yet heard of Stardew Valley and give them a taste of its themes and artwork, and maybe get them hooked.
 * Passing time or giving the client extra activities for their site in the theme of gaming or Stardew valley
 
@@ -102,7 +102,7 @@ Based on the research and goal development above I created a list of user storie
 
 ### Content
 
-The game is made up of 6 pairs of character cards made popular by the original game Stardew Valley. 
+The game is made up of 6 pairs of character cards made popular by the original game Stardew Valley.
 These characters are:
 
 * Emily
@@ -199,7 +199,7 @@ All pages have a clickable logo header at the top of the screen to redirect back
 
 #### **Colour & Design**
 
-The design of the site is influenced by the original Stardew Valley game (https://www.stardewvalley.net/), using elements of the original game design such as the background photo, fonts and images of the characters. I have therefore used shades that match the original design and branding of Stardew Valley. I have ensured that the fonts chosen are compatible with accessibility in terms of size, colours and legibility.
+The design of the site is influenced by the original [Stardew Valley game](https://www.stardewvalley.net/), using elements of the original game design such as the background photo, fonts and images of the characters. I have therefore used shades that match the original design and branding of Stardew Valley. I have ensured that the fonts chosen are compatible with accessibility in terms of size, colours and legibility.
 I colour picked using coolors.co using a Stardew Valley theme screenshot, then altered these codes to find a final, well contrasted, colour palette considering the by nature very busy design of the graphics.
 
 <details><summary>Initial Colour Picker from Screenshot</summary>
@@ -219,7 +219,6 @@ I colour picked using coolors.co using a Stardew Valley theme screenshot, then a
 
 </details>
 
-
 - - -
 
 ##### **Other Design Choices**
@@ -233,7 +232,7 @@ I colour picked using coolors.co using a Stardew Valley theme screenshot, then a
 #### **Fonts**
 
 I downloaded the specialty font as a .woff file straight into the documents. The font from Stardew Valley was not available on Google Fonts or similar, therefore this was the only way it could be done. It was found on reddit made by user @cowsplay and downloaded from [their dropbox](https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlkey=jt2mobz467ah9vhcyf404244e&e=1&st=zss04ys1&dl=0)
-I had a fallback font of sans-serif standard font as I felt this was a good match with the 8-bit simplified nature of the design. 
+I had a fallback font of sans-serif standard font as I felt this was a good match with the 8-bit simplified nature of the design.
 
 - - -
 
@@ -286,8 +285,8 @@ I had a fallback font of sans-serif standard font as I felt this was a good matc
 * [Stack Overflow](https://stackoverflow.com)
   * Used during build for help and advice, as documented in notes
 * [Youtube](https://youtube.com)
-  * Channels used to help with specific functions and styling,  @cognivisAI 
-* [Udemy] (https://udemy.com)
+  * Channels used to help with specific functions and styling,  @cognivisAI
+* [Udemy](https://udemy.com)
   * Help and tutoring, courses from Laurence Svekis and Colt Steele
 * [Code Institute](https://codeinstitute.com)
   * Initial training, support, mentoring and tutoring
@@ -662,13 +661,13 @@ This section explains in plain English what happens in the JavaScript code as th
 
 ### GitHub Pages
 
-The site was deployed to GitHub pages. The steps to deploy are as follows: 
+The site was deployed to GitHub pages. The steps to deploy are as follows:
 
-1. In the GitHub repository, navigate to the Settings tab 
+1. In the GitHub repository, navigate to the Settings tab
 2. From the left hand menu select 'Pages'
 3. From the source select Branch: main
 4. Click 'Save'
-5. A live link will be displayed when published successfully. 
+5. A live link will be displayed when published successfully.
 
 The live link can be found here - [https://https://zog08.github.io/memory-game-MP2/](https://https://zog08.github.io/memory-game-MP2/)
 

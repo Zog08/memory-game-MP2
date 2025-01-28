@@ -33,7 +33,7 @@ This is the testing documentation for my web application: Stardew Valley Memory 
 
 While building my memory game site I developed a comprehensive testing plan to ensure all elements were functioning correctly, using predominantly manual testing. I did try some automated tests during and at the end of the development process, which was a great learning process as part of my Code Institute learning journey. I felt that due to the low complexity of the website and high complexxity of the automated testing that I would need to write that this wouldnt be necessary for my application, with it beng fairly simple in content, and that it would be better served with in-depth manual testing which is detailed below.
 
-My manual testing involved going through the game and manually checking all elements behaved as expected and making sure that the JavaScript was producing the correct results based on the user selections. I have also included details of automated testing/validation that I undertook which included validation for HTML & CSS and checking the site for accessibilty and performance. The site was tested throughout the process, both in the development and deployed version of the sites. All the test results detailed below are based on the [deployed site](https://zog08.github.io/memory-game-MP2). 
+My manual testing involved going through the game and manually checking all elements behaved as expected and making sure that the JavaScript was producing the correct results based on the user selections. I have also included details of automated testing/validation that I undertook which included validation for HTML & CSS and checking the site for accessibilty and performance. The site was tested throughout the process, both in the development and deployed version of the sites. All the test results detailed below are based on the [deployed site](https://zog08.github.io/memory-game-MP2).
 
 ## Automated Checks and Validation
 
@@ -82,7 +82,7 @@ There were 2 errors, some occurring on the same element across multiple pages:
 
 ### CSS Validation
 
-I ran the CSS code through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input). 
+I ran the CSS code through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input).
 
 #### **CSS Errors**
 
@@ -98,7 +98,7 @@ Warning 1: -webkit-transition-duration is a vendor extension
 
 ### JavaScript Validation
 
-I ran the JavaScript code through [JSHint](https://jshint.com/). 
+I ran the JavaScript code through [JSHint](https://jshint.com/).
 
 There were no errors but there were a number of warnings which can be grouped as follows:
 
@@ -136,7 +136,7 @@ I did extensive investigation about these warnings, it seems to relate to the wa
 
 ### Accessibility
 
-I ran the site through the [Wave Web Accessibility Evaulation Tool](https://wave.webaim.org/). 
+I ran the site through the [Wave Web Accessibility Evaulation Tool](https://wave.webaim.org/).
 
 #### **Accessibility Errors**
 
@@ -234,6 +234,7 @@ I found that my website scored excellently in all areas tested, but I decided to
 ![Lighthouse End](docs/testing/lighthouse-end.png)
 
 ##### **404 Page**
+
 This page had a warning for 'Low resolution image used'. I decided not to change the image because there was no other image of the Stardew specific magnifying glass available in greater resolution. I decided that because the image is small and by its very nature supposed to look lo-fi and pixelated that it did not affect enjoyment of the game. The previously found console warning also showed here regarding local storage cannot set property of null, but if I retested with a mostRecentScore saved in the local storage, again this negated the error and thus improved the score.
 
 ![Lighthouse 404](docs/testing/lighthouse-404.png)
@@ -486,7 +487,7 @@ I tested the site based on my user stories:
 
 The site was tested on the following devices
 
-* Apple Macbook M3 Air 13", iOS Sonoma 14.5, 2024, Safari browser. 
+* Apple Macbook M3 Air 13", iOS Sonoma 14.5, 2024, Safari browser.
 * Apple iPad Pro 12.9" 3rd Gen, iOS 17.6.1, portrait and landscape, Safari browser.
 * Apple iPhone SE 1st Gen, portrait and landscape.
 * Apple iPhone 14 pro, iOS 18.2.1, portrait and landscape, Safari, Chrome and MS Edge browsers.
@@ -579,8 +580,8 @@ The site was also submitted for review by my peers on Code Institute Slack Peer-
 | Form Box Contents | When game is complete, html is added to the Moves: section to show most recent score got from Local Storage | Complete game, redirect to end and on page load | All content appeared as expected  | Pass |
 | Form Input Box | Appears on page load with 'username' as placeholder text. Can only click save if a key is clicked in the input box. Username saved to local storage | Game completed. Tried clicking save without a username, save button is disabled. Typed in username, save button is enabled  | Input box works as expected | Pass |
 | Save Name button | Shadow animation on hover | Hover mouse over save button on various devices and browsers | Works as expected | Pass |
-| Save Name button | Button disabled until keyboard input in username field | Tested on multiple devices and browsers, button works as expected | Pass |
-| Save Name button | On button click, the username and most recent score is pushed to the hiscore array. The array is sorted from low to high. The top 5 lowest scores are saved to the new array. The array is stringified and the page reloaded to show the new Hi Score list on screen | Tested on multiple devices and browsers, button works as expected | Pass |
+| Save Name button | Button disabled until keyboard input in username field | Tested on multiple devices and browsers | Button works as expected | Pass |
+| Save Name button | On button click, the username and most recent score is pushed to the hiscore array. The array is sorted from low to high. The top 5 lowest scores are saved to the new array. The array is stringified and the page reloaded to show the new Hi Score list on screen | Tested on multiple devices and browsers | Button works as expected | Pass |
 | Play Again button | Shadow animation on hover | Hover mouse over save button on various devices and browsers | Works as expected | Pass |
 | Play Again button | When clicked, redirects the user to game page to play again | Button clicked on various devices and browsers | Works as expected | Pass |
 | Go Home button | Shadow animation on hover | Hover mouse over save button on various devices and browsers | Works as expected | Pass |
@@ -696,7 +697,7 @@ Added lockboard function into javascript, where designated by comments in app.js
 
 ### Known & Remaining Bugs
 
-All information about remaining bugs is included in the information above. 
+All information about remaining bugs is included in the information above.
 
 1. [Null entered as high score](#4-null-entered-as-hi-score)
 2. [Console error mentioned extensively in testing](#performance)
