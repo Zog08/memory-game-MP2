@@ -146,3 +146,4 @@ highScoresList.innerHTML = highScores // Adds name and hi-score to the score boa
         return `<li class="high-score">${score.name} - ${score.score}</li>`;
     })
     .join("");
+    

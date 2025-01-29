@@ -17,8 +17,7 @@ body {
     justify-content: center;
 }
 
-/* font sourced from @cowsplay on Reddit.com 
-https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlkey=jt2mobz467ah9vhcyf404244e&e=1&st=zss04ys1&dl=0 */
+/* font sourced from @cowsplay on Reddit.com, see readme for details */
 @font-face {
     font-family: "stardew";
     src: url("font/stardew.woff") format("woff");
@@ -32,9 +31,6 @@ https://www.dropbox.com/scl/fo/yj7f693fastcxousb4a77/ALOsUplSqL1DSpqk6iJ9sK0?rlk
     padding-top: 10px;
     margin: auto;
     justify-self: center;
-    /*-webkit-justify-self: center;
-    align-items: center;
-    -webkit-align-items: center;*/
 }
 
 h1 {
@@ -135,8 +131,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     border: 2px solid #046aca;
-    perspective: 1000px;
-    /* create 3D depth for card to flip in 3D*/
+    perspective: 1000px;             /* create 3D depth for card to flip in 3D*/
 }
 
 .memory-card {
@@ -178,13 +173,11 @@ h1 {
     min-width: 80px;
     min-height: 81px;
     position: absolute;
-    backface-visibility: hidden;
-    /* hides the backface of the card when flips, default is to show the backface */
+    backface-visibility: hidden;            /* hides the backface of the card when flips, default is to show the backface */
 }
 
 .front-face {
-    transform: rotateY(180deg);
-    /* rotate the backface of the card 180deg so its visible when card is flipped*/
+    transform: rotateY(180deg);             /* rotate the backface of the card 180deg so its visible when card is flipped*/
 }
 
 /* ----------------------------------------------------- End.html page specific CSS */
