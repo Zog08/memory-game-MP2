@@ -155,12 +155,14 @@ h1 {
     cursor: url('images/junimo.webp'), auto;
 }
 
-.memory-card:active {               /* make the card shrink slightly when clicked active*/
+.memory-card:active {
+    /* make the card shrink slightly when clicked active*/
     transform: scale(.97);
     transition: transform .2s;
 }
 
-.memory-card.flip {                 /* rotate on Y axis to flip the card when clicked*/
+.memory-card.flip {
+    /* rotate on Y axis to flip the card when clicked*/
     transform: rotateY(180deg);
 }
 
@@ -176,11 +178,13 @@ h1 {
     min-width: 80px;
     min-height: 81px;
     position: absolute;
-    backface-visibility: hidden;    /* hides the backface of the card when flips, default is to show the backface */
+    backface-visibility: hidden;
+    /* hides the backface of the card when flips, default is to show the backface */
 }
 
 .front-face {
-    transform: rotateY(180deg);    /* rotate the backface of the card 180deg so its visible when card is flipped*/
+    transform: rotateY(180deg);
+    /* rotate the backface of the card 180deg so its visible when card is flipped*/
 }
 
 /* ----------------------------------------------------- End.html page specific CSS */
